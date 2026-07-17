@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub - Login</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <div class="logo">
+            StudentHub
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li>
+                    <a href="login.html">
+                        <button class="btn btn-primary">Login</button>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="register.html">
+                        <button class="btn btn-secondary">Register</button>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- Login Form -->
+
+    <main>
+
+        <div class="form-box">
+
+            <h2>Welcome Back!</h2>
+
+            <p style="text-align:center; color:var(--text-light); margin-bottom:25px;">
+                Login to continue to your StudentHub account.
+            </p>
+
+            <form>
+
+                <div class="form-group">
+
+                    <label for="studentid">Student ID</label>
+
+                    <input
+                        type="text"
+                        id="studentid"
+                        placeholder="Enter your Student ID">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password">
+
+                </div>
+
+                <div style="display:flex; gap:10px;">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        style="flex:1;">
+                        Login
+                    </button>
+
+                    <button
+                        type="reset"
+                        class="btn btn-secondary"
+                        style="flex:1;">
+                        Clear
+                    </button>
+
+                </div>
+
+            </form>
+
+            <br>
+
+            <p style="text-align:center;">
+
+                New Student?
+
+                <a
+                    href="register.html"
+                    style="color:var(--primary); font-weight:600;">
+                    Register Here
+                </a>
+
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+
+        © 2026 StudentHub. All Rights Reserved.
+
+    </footer>
+
+</body>
+
+</html>
