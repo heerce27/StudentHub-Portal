@@ -2,66 +2,108 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>StudentHub - Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub | Register</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
     <!-- Header -->
-    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+    <header>
 
-        <h2 style="color: darkblue; margin:0;">StudentHub</h2>
+        <div class="logo">
+             StudentHub
+        </div>
 
         <nav>
-            <a href="login.html"><button>Login</button></a>
-            <a href="register.html"><button>Register</button></a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
         </nav>
 
     </header>
 
-    <hr>
+    <!-- Register Section -->
+    <section class="register-section">
 
-    <h1 style="text-align:center;">Student Registration</h1>
+        <div class="form-box">
 
-    <div style="width:350px; margin:auto; border:1px solid lightgray; padding:20px; border-radius:8px;">
+            <h2>Create Your Account</h2>
 
-        <form>
+            <p class="form-subtitle">
+                Join StudentHub and stay connected with campus events,
+                attendance, notices and more.
+            </p>
 
-            <label>Full Name</label><br>
-            <input type="text" placeholder="Enter Full Name" style="width:95%;"><br><br>
+            <form>
 
-            <label>Student ID</label><br>
-            <input type="text" placeholder="Enter Student ID" style="width:95%;"><br><br>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your full name">
+                </div>
 
-            <label>Department</label><br>
-            <input type="text" placeholder="Enter Department" style="width:95%;"><br><br>
+                <div class="form-group">
+                    <label>Student ID</label>
+                    <input type="text" placeholder="Enter Student ID">
+                </div>
 
-            <label>Password</label><br>
-            <input type="password" placeholder="Create Password" style="width:95%;"><br><br>
+                <div class="form-group">
+                    <label>Department</label>
 
-            <label>Confirm Password</label><br>
-            <input type="password" placeholder="Confirm Password" style="width:95%;"><br><br>
+                    <select>
+                        <option>Select Department</option>
+                        <option>Computer Engineering</option>
+                        <option>Information Technology</option>
+                        <option>Computer Science</option>
+                        <option>Electronics & Communication</option>
+                        <option>Mechanical Engineering</option>
+                    </select>
 
-            <div style="text-align:center;">
-                <button type="submit">Register</button>
-                <button type="reset">Clear</button>
-            </div>
+                </div>
 
-        </form>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Create password">
+                </div>
 
-        <br>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" placeholder="Confirm password">
+                </div>
 
-        <p style="text-align:center;">
-            Already have an account?
-            <a href="login.html">Login Here</a>
-        </p>
+                <div class="button-group">
+                    <button class="btn btn-primary" type="submit">
+                        Register
+                    </button>
 
-    </div>
+                    <button class="btn btn-secondary" type="reset">
+                        Clear
+                    </button>
+                </div>
 
-    <hr>
+            </form>
+
+            <p class="login-link">
+                Already have an account?
+
+                <a href="login.html">
+                    Login Here
+                </a>
+
+            </p>
+
+        </div>
+
+    </section>
 
     <footer>
-        <p style="text-align:center;">© 2026 StudentHub. All Rights Reserved.</p>
+
+        © 2026 StudentHub | Designed for Students
+
     </footer>
 
 </body>

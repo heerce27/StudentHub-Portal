@@ -1,280 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub | Attendance</title>
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>StudentHub | Attendance</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <header>
 
-<h2>StudentHub</h2>
+    <div class="logo">StudentHub</div>
 
-<nav>
-
-<a href="dashboard.html">Dashboard</a>
-
-<a href="profile.html">Profile</a>
-
-<a href="login.html">Logout</a>
-
-</nav>
+    <nav>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
 
 </header>
 
 <div class="container">
 
-<div class="card">
+    <!-- Page Heading -->
+    <section class="hero attendance-hero">
 
-<h1>Attendance Dashboard</h1>
+        <h1>Attendance Dashboard</h1>
 
-<p>Keep track of your attendance across all subjects.</p>
+        <p>
+            Monitor your attendance across all subjects and stay above the
+            required attendance percentage.
+        </p>
+
+    </section>
+
+    <!-- Statistics -->
+    <div class="grid attendance-grid">
+
+        <div class="card stats-card">
+            <h3>Overall Attendance</h3>
+            <h1>82%</h1>
+            <span class="badge badge-green">Good Standing</span>
+        </div>
+
+        <div class="card stats-card">
+            <h3>Present</h3>
+            <h1>116</h1>
+            <p>Classes Attended</p>
+        </div>
+
+        <div class="card stats-card">
+            <h3>Absent</h3>
+            <h1>26</h1>
+            <p>Classes Missed</p>
+        </div>
 
-</div>
+        <div class="card stats-card">
+            <h3>Required</h3>
+            <h1>75%</h1>
+            <p>Minimum Attendance</p>
+        </div>
 
-<div class="cards">
+    </div>
 
-<div class="small-card">
+    <!-- Subject Attendance -->
 
-<h2>Overall</h2>
+    <div class="card">
 
-<h1>82%</h1>
+        <h2>Subject-wise Attendance</h2>
 
-<p>Good Standing</p>
+        <div class="subjects">
 
-</div>
+            <div class="subject-card">
+                <h3>Data Structures</h3>
+                <progress value="87" max="100"></progress>
+                <p><strong>87%</strong></p>
+                <span class="badge badge-green">Safe</span>
+            </div>
 
-<div class="small-card">
+            <div class="subject-card">
+                <h3>Computer Networks</h3>
+                <progress value="80" max="100"></progress>
+                <p><strong>80%</strong></p>
+                <span class="badge badge-green">Safe</span>
+            </div>
 
-<h2>Present</h2>
+            <div class="subject-card">
+                <h3>Web Development</h3>
+                <progress value="72" max="100"></progress>
+                <p><strong>72%</strong></p>
+                <span class="badge badge-pink">Warning</span>
+            </div>
 
-<h1>116</h1>
+            <div class="subject-card">
+                <h3>Discrete Mathematics</h3>
+                <progress value="64" max="100"></progress>
+                <p><strong>64%</strong></p>
+                <span class="badge badge-blue">Critical</span>
+            </div>
 
-<p>Classes Attended</p>
+            <div class="subject-card">
+                <h3>OOP</h3>
+                <progress value="86" max="100"></progress>
+                <p><strong>86%</strong></p>
+                <span class="badge badge-green">Safe</span>
+            </div>
 
-</div>
+        </div>
 
-<div class="small-card">
+    </div>
 
-<h2>Absent</h2>
+    <!-- Table -->
 
-<h1>26</h1>
+    <div class="card">
 
-<p>Classes Missed</p>
+        <h2>Recent Attendance</h2>
 
-</div>
+        <table>
 
-<div class="small-card">
+            <tr>
+                <th>Date</th>
+                <th>Subject</th>
+                <th>Status</th>
+            </tr>
 
-<h2>Required</h2>
+            <tr>
+                <td>15 July</td>
+                <td>Data Structures</td>
+                <td><span class="badge badge-green">Present</span></td>
+            </tr>
 
-<h1>75%</h1>
+            <tr>
+                <td>15 July</td>
+                <td>Computer Networks</td>
+                <td><span class="badge badge-pink">Absent</span></td>
+            </tr>
 
-<p>Minimum Attendance</p>
+            <tr>
+                <td>14 July</td>
+                <td>Web Development</td>
+                <td><span class="badge badge-green">Present</span></td>
+            </tr>
 
-</div>
+            <tr>
+                <td>14 July</td>
+                <td>OOP</td>
+                <td><span class="badge badge-green">Present</span></td>
+            </tr>
 
-</div>
+        </table>
 
-<br>
+    </div>
 
-<div class="card">
+    <!-- Bottom Cards -->
 
-<h2>Subject-wise Attendance</h2>
+    <div class="grid attendance-grid">
 
-<br>
+        <div class="card">
 
-<div class="subjects">
+            <h3>⚠ Notifications</h3>
 
-<div class="subject-card">
+            <br>
 
-<h3>Data Structures</h3>
+            <p>Web Development attendance is below 75%.</p>
 
-<br>
+            <br>
 
-<progress value="87" max="100"></progress>
+            <p>Attend the next 3 classes to stay eligible.</p>
 
-<p><b>87%</b></p>
+        </div>
 
-<p class="safe">Safe</p>
+        <div class="card">
 
-</div>
+            <h3>Attendance Rules</h3>
 
-<div class="subject-card">
+            <br>
 
-<h3>Computer Networks</h3>
+            <p><strong>Minimum Attendance:</strong> 75%</p>
 
-<br>
+            <br>
 
-<progress value="80" max="100"></progress>
+            <p>Medical leave requires valid proof.</p>
 
-<p><b>80%</b></p>
+            <br>
 
-<p class="safe">Safe</p>
+            <p>Students below 75% may not be eligible for exams.</p>
 
-</div>
+        </div>
 
-<div class="subject-card">
-
-<h3>Web Development</h3>
-
-<br>
-
-<progress value="72" max="100"></progress>
-
-<p><b>72%</b></p>
-
-<p class="warning">Warning</p>
-
-</div>
-
-<div class="subject-card">
-
-<h3>Discrete Mathematics</h3>
-
-<br>
-
-<progress value="64" max="100"></progress>
-
-<p><b>64%</b></p>
-
-<p class="danger">Critical</p>
-
-</div>
-
-<div class="subject-card">
-
-<h3>Object Oriented Programming</h3>
-
-<br>
-
-<progress value="86" max="100"></progress>
-
-<p><b>86%</b></p>
-
-<p class="safe">Safe</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>Recent Attendance</h2>
-
-<br>
-
-<table>
-
-<tr>
-
-<th>Date</th>
-
-<th>Subject</th>
-
-<th>Status</th>
-
-</tr>
-
-<tr>
-
-<td>15 July</td>
-
-<td>Data Structures</td>
-
-<td class="safe">Present</td>
-
-</tr>
-
-<tr>
-
-<td>15 July</td>
-
-<td>Computer Networks</td>
-
-<td class="danger">Absent</td>
-
-</tr>
-
-<tr>
-
-<td>14 July</td>
-
-<td>Web Development</td>
-
-<td class="safe">Present</td>
-
-</tr>
-
-<tr>
-
-<td>14 July</td>
-
-<td>OOP</td>
-
-<td class="safe">Present</td>
-
-</tr>
-
-</table>
-
-</div>
-
-<div class="cards">
-
-<div class="small-card">
-
-<h2>Notifications</h2>
-
-<br>
-
-<p>⚠ Web Development attendance is below 75%.</p>
-
-<br>
-
-<p>✔ Attend next 3 classes to stay eligible.</p>
-
-</div>
-
-<div class="small-card">
-
-<h2>Attendance Rules</h2>
-
-<br>
-
-<p>Minimum Attendance: <b>75%</b></p>
-
-<br>
-
-<p>Medical leave requires valid proof.</p>
-
-<br>
-
-<p>Students below 75% may not be eligible for exams.</p>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 
 <footer>
 
-© 2026 StudentHub Portal
+    © 2026 StudentHub | Attendance Portal
 
 </footer>
 
 </body>
-
 </html>
