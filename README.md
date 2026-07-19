@@ -116,5 +116,5 @@ StudentHub/
 
 ## Developed By
 
-StudentHub Project
+Heer Shah
 Computer Engineering
