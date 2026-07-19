@@ -1,0 +1,117 @@
+Requirement Analysis – StudentHub Portal
+
+1. Introduction
+StudentHub is a web-based student management portal designed to simplify academic and administrative tasks. It provides a centralized platform where students can access attendance, results, certificates, fees, events, feedback, and profile information.
+
+Functional Requirements:
+User Authentication
+Student login using Student ID and password.
+Secure logout.
+Session management.
+
+Dashboard
+Display welcome message.
+Quick navigation cards.
+Notifications.
+Upcoming events.
+
+Student Profile
+View student information.
+Display department, semester, contact details.
+Profile picture.
+
+Attendance Module
+View subject-wise attendance.
+Display attendance percentage.
+Show attendance status.
+
+Results Module
+Display semester-wise results.
+SGPA and CGPA.
+Subject-wise marks.
+
+Certificates Module
+View available certificates.
+Download certificates.
+Certificate status.
+
+Fees Module
+Display fee details.
+Payment status.
+Due amount.
+
+Events Module
+Display upcoming events.
+Event description.
+Registration button.
+
+Feedback Module
+Submit feedback.
+Rating system.
+Suggestions.
+
+Contact Page
+College contact information.
+Email.
+Phone number.
+Address.
+
+Non-Functional Requirements:
+Performance
+Fast page loading.
+Quick response time.
+
+Security
+Secure login.
+Password protection.
+Session handling.
+
+Usability
+User-friendly interface.
+Responsive design.
+Easy navigation.
+
+Reliability
+Accurate data display.
+Stable system.
+
+Compatibility
+Works on Chrome, Firefox, Edge.
+Mobile responsive.
+
+Maintainability
+Organized HTML files.
+Common CSS stylesheet.
+Easy code modification.
+
+Software Requirements:
+
+Frontend
+HTML5
+CSS3
+
+Backend
+PHP
+Database
+MySQL
+
+Development Tools
+Visual Studio Code
+XAMPP
+phpMyAdmin
+Git
+GitHub
+
+Operating System
+Windows 10/11
+
+Hardware Requirements
+Minimum
+Processor: Intel Core i3 or AMD equivalent
+RAM: 4 GB
+Storage: 20 GB free
+Internet Connection
+Recommended
+Processor: Intel Core i5 or above
+RAM: 8 GB
+SSD Storage

@@ -1,0 +1,29 @@
+                        STUDENTHUB PORTAL
+                               │
+                    ┌──────────┴──────────┐
+                    │                     │
+                Login Page            Register (Optional)
+                    │
+                    ▼
+               Dashboard
+                    │
+ ┌──────────┬──────────┬──────────┬──────────┐
+ │          │          │          │          │
+ ▼          ▼          ▼          ▼          ▼
+Profile  Attendance  Results  Certificates  Fees
+ │          │          │          │          │
+ │          │          │          │          │
+ └──────────┴──────────┴──────────┴──────────┘
+                    │
+          ┌─────────┴─────────┐
+          │                   │
+          ▼                   ▼
+       Events             Feedback
+          │                   │
+          └─────────┬─────────┘
+                    │
+                    ▼
+               Contact Page
+                    │
+                    ▼
+                 Logout
