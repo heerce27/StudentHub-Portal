@@ -1,6 +1,4 @@
 /* StudentHub Improved CSS
-   This file is a cleaned and improved version.
-   NOTE: Due to chat size limits, this starter includes the core improvements.
 */
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -34,3 +32,79 @@ th{background:var(--primary);color:#fff}th,td{padding:14px;text-align:center}tr:
 .subject-card{background:#fafafa;border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center}
 footer{margin-top:50px;padding:20px;background:var(--primary);color:#fff;text-align:center}
 @media(max-width:768px){header{flex-direction:column;gap:15px}nav ul{flex-wrap:wrap;justify-content:center}.grid,.subjects{grid-template-columns:1fr}}
+
+/* ==========================
+   PROFILE PAGE
+========================== */
+
+.profile-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.profile-img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid var(--primary);
+    margin-bottom:15px;
+}
+
+.profile-header h2{
+    margin-bottom:8px;
+}
+
+.profile-header p{
+    color:var(--text-light);
+}
+
+.profile-details{
+    max-width:700px;
+    margin:0 auto;
+}
+
+.profile-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:12px 18px;
+    margin-bottom:12px;
+
+    background:#fafafa;
+    border:1px solid var(--border);
+    border-radius:12px;
+}
+
+.profile-item .label{
+    font-weight:600;
+    color:var(--primary);
+}
+
+.profile-item .value{
+    text-align:right;
+    color:var(--text);
+}
+
+.profile-buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+@media(max-width:768px){
+
+.profile-item{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.profile-item .value{
+    text-align:left;
+    margin-top:6px;
+}
+
+}
