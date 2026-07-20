@@ -1,0 +1,573 @@
+/* ==========================================================
+   StudentHub — Profile Page (page-specific styles only)
+   Relies on tokens already defined in css/style.css:
+   --primary, --primary-dark, --accent, --background, --card,
+   --sage, --text, --text-light, --border, --shadow, --radius
+   ========================================================== */
+
+/* ---------- Page shell ---------- */
+.sh-profile-page{
+  background: var(--background);
+}
+
+.sh-profile-shell{
+  width: min(1180px, 92%);
+  margin: 40px auto 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ---------- Shared card ---------- */
+.sh-profile-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px 30px;
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.sh-profile-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(61, 91, 109, 0.14);
+}
+
+.sh-profile-cardTitle{
+  font-family: 'Bree Serif', serif;
+  font-size: 1.25rem;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.sh-profile-sectionHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+.sh-profile-sectionHead .sh-profile-cardTitle{ margin-bottom: 0; }
+
+/* ---------- Hero / Banner ---------- */
+.sh-profile-hero{
+  position: relative;
+  margin-top: 8px;
+}
+
+.sh-profile-banner{
+  height: 200px;
+  border-radius: 22px;
+  background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 45%, var(--accent) 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* subtle glassmorphism sheen — banner only */
+.sh-profile-banner::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(255,255,255,0.30), transparent 45%),
+    linear-gradient(115deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 35%);
+  backdrop-filter: blur(2px);
+}
+
+.sh-profile-banner::after{
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+}
+
+.sh-profile-heroRow{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: flex-end;
+  column-gap: 26px;
+  padding: 0 34px;
+  margin-top: -78px;
+}
+
+.sh-profile-avatarWrap{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  box-shadow: 0 12px 28px rgba(61, 91, 109, 0.30);
+  flex-shrink: 0;
+}
+
+.sh-profile-avatar{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--card);
+  display: block;
+  transition: transform .35s ease;
+}
+
+.sh-profile-avatarWrap:hover .sh-profile-avatar{
+  transform: scale(1.06);
+}
+
+.sh-profile-heroInfo{
+  padding-bottom: 14px;
+  text-align: left;
+}
+
+.sh-profile-name{
+  font-family: 'Bree Serif', serif;
+  font-size: 2rem;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.sh-profile-major{
+  color: var(--primary-dark);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.sh-profile-metaLine{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-light);
+  font-size: 0.92rem;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.sh-profile-dot{ color: var(--border); }
+
+.sh-profile-statusPill{
+  background: rgba(143, 169, 138, 0.18);
+  color: var(--sage);
+  border: 1px solid rgba(143, 169, 138, 0.4);
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.sh-profile-contactRow{
+  display: flex;
+  gap: 22px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.sh-profile-contactItem{
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text-light);
+  font-size: 0.92rem;
+}
+
+.sh-profile-icon{
+  width: 16px;
+  height: 16px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.sh-profile-heroActions{
+  padding-bottom: 14px;
+}
+
+.sh-profile-editBtn{
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow: 0 8px 18px rgba(201, 138, 149, 0.35);
+}
+
+.sh-profile-editBtn:hover{
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.sh-profile-editBtn:active{
+  transform: translateY(0);
+}
+
+/* ---------- Two column grid ---------- */
+.sh-profile-grid2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ---------- About ---------- */
+.sh-profile-aboutText{
+  color: var(--text);
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* ---------- Personal information ---------- */
+.sh-profile-infoGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 22px;
+}
+
+.sh-profile-infoItem{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.sh-profile-infoItem--full{
+  grid-column: 1 / -1;
+}
+
+.sh-profile-infoLabel{
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.sh-profile-infoValue{
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ---------- Academic information ---------- */
+.sh-profile-academicGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sh-profile-academicItem{
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sh-profile-academicLabel{
+  font-size: 0.78rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sh-profile-academicValue{
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.sh-profile-academicValue--accent{
+  color: var(--accent-hover);
+}
+
+.sh-profile-meterTrack{
+  display: block;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--border);
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.sh-profile-meterFill{
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--sage), var(--primary));
+  border-radius: 999px;
+}
+
+/* ---------- Skills ---------- */
+.sh-profile-skills{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sh-profile-chip{
+  background: rgba(78, 110, 129, 0.08);
+  border: 1px solid rgba(78, 110, 129, 0.25);
+  color: var(--primary-dark);
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: default;
+  transition: all .2s ease;
+}
+
+.sh-profile-chip:hover{
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(61, 91, 109, 0.25);
+}
+
+/* ---------- Achievements ---------- */
+.sh-profile-achievements{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sh-profile-achievement{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform .2s ease, border-color .2s ease;
+  text-align: left;
+}
+
+.sh-profile-achievement:hover{
+  transform: translateX(4px);
+  border-color: var(--accent);
+}
+
+.sh-profile-achievementIcon{
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(201, 138, 149, 0.14);
+  color: var(--accent-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sh-profile-achievementIcon svg{
+  width: 22px;
+  height: 22px;
+}
+
+.sh-profile-achievementTitle{
+  font-weight: 600;
+  color: var(--text);
+}
+
+.sh-profile-achievementDesc{
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+/* ---------- Certificates ---------- */
+.sh-profile-viewAllBtn{
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  padding: 9px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.sh-profile-viewAllBtn:hover{
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.sh-profile-certGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.sh-profile-certCard{
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: left;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.sh-profile-certCard:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 12px 22px rgba(61, 91, 109, 0.14);
+}
+
+.sh-profile-certIcon{
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.sh-profile-certName{
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.sh-profile-certDate{
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ---------- Recent activity timeline ---------- */
+.sh-profile-timeline{
+  list-style: none;
+  position: relative;
+  margin-left: 6px;
+  padding-left: 26px;
+  border-left: 2px solid var(--border);
+}
+
+.sh-profile-timelineItem{
+  position: relative;
+  padding-bottom: 26px;
+  text-align: left;
+}
+
+.sh-profile-timelineItem:last-child{
+  padding-bottom: 0;
+}
+
+.sh-profile-timelineDot{
+  position: absolute;
+  left: -32px;
+  top: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 3px solid var(--accent);
+}
+
+.sh-profile-timelineWhen{
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+}
+
+.sh-profile-timelineText{
+  color: var(--text);
+  margin-top: 4px;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+/* Tablet */
+@media (max-width: 1024px){
+  .sh-profile-academicGrid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sh-profile-certGrid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet / small tablet — stack hero + two column cards */
+@media (max-width: 860px){
+  .sh-profile-grid2{
+    grid-template-columns: 1fr;
+  }
+
+  .sh-profile-heroRow{
+    grid-template-columns: auto 1fr;
+    row-gap: 16px;
+  }
+
+  .sh-profile-heroActions{
+    grid-column: 1 / -1;
+    padding-bottom: 0;
+  }
+
+  .sh-profile-editBtn{
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  .sh-profile-shell{
+    width: 92%;
+    gap: 20px;
+  }
+
+  .sh-profile-banner{
+    height: 190px;
+    border-radius: 18px;
+  }
+
+  .sh-profile-heroRow{
+    grid-template-columns: 1fr;
+    justify-items: flex-start;
+    padding: 0 6px;
+    margin-top: -60px;
+  }
+
+  .sh-profile-avatarWrap{
+    width: 110px;
+    height: 110px;
+  }
+
+  .sh-profile-name{
+    font-size: 1.5rem;
+  }
+
+  .sh-profile-card{
+    padding: 22px 18px;
+  }
+
+  .sh-profile-infoGrid{
+    grid-template-columns: 1fr;
+  }
+
+  .sh-profile-academicGrid{
+    grid-template-columns: 1fr;
+  }
+
+  .sh-profile-certGrid{
+    grid-template-columns: 1fr;
+  }
+
+  .sh-profile-contactRow{
+    flex-direction: column;
+    gap: 8px;
+  }
+}

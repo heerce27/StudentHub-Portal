@@ -1,111 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub | Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aarav Mehta — StudentHub Profile</title>
 
-    <link rel="stylesheet" href="css/style.css">
+<!-- Base portal styles (do not modify) -->
+<link rel="stylesheet" href="css/style.css">
+<!-- Page-specific styles for the profile page -->
+<link rel="stylesheet" href="css/profile.css">
 </head>
+<body class="sh-profile-page">
 
-<body>
+  <!-- ============ TOP NAV (uses base header styles) ============ -->
+  <header>
+    <div class="logo">StudentHub</div>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="login.html">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Header -->
-    <header>
-        <h2 class="logo">StudentHub</h2>
+  <main class="sh-profile-shell">
 
-        <nav>
-            <ul>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="profile.html">Profile</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- ============ HERO / BANNER ============ -->
+    <section class="sh-profile-hero" aria-label="Profile summary">
+      <div class="sh-profile-banner"></div>
 
-    <!-- Profile Section -->
-    <section class="container">
-
-    <div class="hero">
-        <h1>My Profile</h1>
-        <p>View your personal and academic information.</p>
-    </div>
-
-    <div class="card">
-
-        <!-- Profile Header -->
-        <div class="profile-header">
-
-            <img src="images/profile.png" alt="Profile Photo" class="profile-img">
-
-            <h2>Heer Shah</h2>
-
-            <p>Computer Engineering Student</p>
-
+      <div class="sh-profile-heroRow">
+        <div class="sh-profile-avatarWrap">
+          <img
+            class="sh-profile-avatar"
+            src="https://i.pravatar.cc/300?img=13"
+            alt="Portrait of Aarav Mehta">
         </div>
 
-        <!-- Profile Details -->
-        <div class="profile-details">
-
-            <div class="profile-item">
-                <span class="label">Student ID</span>
-                <span class="value">23CE001</span>
-            </div>
-
-            <div class="profile-item">
-                <span class="label">Email</span>
-                <span class="value">heer@example.com</span>
-            </div>
-
-            <div class="profile-item">
-                <span class="label">Department</span>
-                <span class="value">Computer Engineering</span>
-            </div>
-
-            <div class="profile-item">
-                <span class="label">Semester</span>
-                <span class="value">Semester 3</span>
-            </div>
-
-            <div class="profile-item">
-                <span class="label">Division</span>
-                <span class="value">A</span>
-            </div>
-
-            <div class="profile-item">
-                <span class="label">Mobile</span>
-                <span class="value">+91 9876543210</span>
-            </div>
-
-            <div class="profile-item">
-                <span class="label">Date of Birth</span>
-                <span class="value">10 January 2007</span>
-            </div>
-
-            <div class="profile-item">
-                <span class="label">Address</span>
-                <span class="value">Anand, Gujarat</span>
-            </div>
-
+        <div class="sh-profile-heroInfo">
+          <h1 class="sh-profile-name">Aarav Mehta</h1>
+          <p class="sh-profile-major">Computer Engineering</p>
+          <p class="sh-profile-metaLine">
+            <span>Semester 3</span>
+            <span class="sh-profile-dot">•</span>
+            <span>ID: STU2024118</span>
+            <span class="sh-profile-dot">•</span>
+            <span class="sh-profile-statusPill">Active Student</span>
+          </p>
+          <div class="sh-profile-contactRow">
+            <span class="sh-profile-contactItem">
+              <svg viewBox="0 0 24 24" class="sh-profile-icon" aria-hidden="true"><path d="M3 6.5 12 13l9-6.5M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              aarav.mehta@studenthub.edu
+            </span>
+            <span class="sh-profile-contactItem">
+              <svg viewBox="0 0 24 24" class="sh-profile-icon" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              +91 98765 43210
+            </span>
+          </div>
         </div>
 
-        <div class="profile-buttons">
+        <div class="sh-profile-heroActions">
+          <button type="button" class="sh-profile-editBtn">Edit Profile</button>
+        </div>
+      </div>
+    </section>
 
-            <button class="btn btn-primary">Edit Profile</button>
+    <!-- ============ ABOUT + PERSONAL INFO ============ -->
+    <section class="sh-profile-grid2">
 
-            <button class="btn btn-secondary">Change Password</button>
+      <div class="sh-profile-card">
+        <h2 class="sh-profile-cardTitle">About Me</h2>
+        <p class="sh-profile-aboutText">
+          Third-year Computer Engineering student with a focus on full-stack
+          development and applied machine learning. I enjoy building small
+          tools that solve real campus problems, and I currently volunteer
+          with the department's peer-mentoring program. Outside class, I
+          contribute to open-source projects and compete in university
+          hackathons.
+        </p>
+      </div>
+
+      <div class="sh-profile-card">
+        <h2 class="sh-profile-cardTitle">Personal Information</h2>
+        <div class="sh-profile-infoGrid">
+          <div class="sh-profile-infoItem">
+            <span class="sh-profile-infoLabel">Full Name</span>
+            <span class="sh-profile-infoValue">Aarav Mehta</span>
+          </div>
+          <div class="sh-profile-infoItem">
+            <span class="sh-profile-infoLabel">Student ID</span>
+            <span class="sh-profile-infoValue">STU2024118</span>
+          </div>
+          <div class="sh-profile-infoItem">
+            <span class="sh-profile-infoLabel">Email</span>
+            <span class="sh-profile-infoValue">aarav.mehta@studenthub.edu</span>
+          </div>
+          <div class="sh-profile-infoItem">
+            <span class="sh-profile-infoLabel">Phone</span>
+            <span class="sh-profile-infoValue">+91 98765 43210</span>
+          </div>
+          <div class="sh-profile-infoItem">
+            <span class="sh-profile-infoLabel">Gender</span>
+            <span class="sh-profile-infoValue">Male</span>
+          </div>
+          <div class="sh-profile-infoItem">
+            <span class="sh-profile-infoLabel">Date of Birth</span>
+            <span class="sh-profile-infoValue">14 March 2005</span>
+          </div>
+          <div class="sh-profile-infoItem sh-profile-infoItem--full">
+            <span class="sh-profile-infoLabel">Address</span>
+            <span class="sh-profile-infoValue">42 Lotus Residency, Bengaluru, Karnataka</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============ ACADEMIC INFORMATION ============ -->
+    <section class="sh-profile-card sh-profile-academic">
+      <h2 class="sh-profile-cardTitle">Academic Information</h2>
+      <div class="sh-profile-academicGrid">
+        <div class="sh-profile-academicItem">
+          <span class="sh-profile-academicLabel">Department</span>
+          <span class="sh-profile-academicValue">Computer Engineering</span>
+        </div>
+        <div class="sh-profile-academicItem">
+          <span class="sh-profile-academicLabel">Semester</span>
+          <span class="sh-profile-academicValue">3rd Semester</span>
+        </div>
+        <div class="sh-profile-academicItem">
+          <span class="sh-profile-academicLabel">Enrollment Year</span>
+          <span class="sh-profile-academicValue">2023</span>
+        </div>
+        <div class="sh-profile-academicItem">
+          <span class="sh-profile-academicLabel">CGPA</span>
+          <span class="sh-profile-academicValue sh-profile-academicValue--accent">8.7 / 10</span>
+        </div>
+        <div class="sh-profile-academicItem">
+          <span class="sh-profile-academicLabel">Attendance</span>
+          <span class="sh-profile-academicValue">
+            92%
+            <span class="sh-profile-meterTrack">
+              <span class="sh-profile-meterFill" style="width:92%"></span>
+            </span>
+          </span>
+        </div>
+        <div class="sh-profile-academicItem">
+          <span class="sh-profile-academicLabel">Mentor</span>
+          <span class="sh-profile-academicValue">Dr. Neha Kulkarni</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS + ACHIEVEMENTS ============ -->
+    <section class="sh-profile-grid2">
+
+      <div class="sh-profile-card">
+        <h2 class="sh-profile-cardTitle">Skills</h2>
+        <ul class="sh-profile-skills">
+          <li class="sh-profile-chip">HTML</li>
+          <li class="sh-profile-chip">CSS</li>
+          <li class="sh-profile-chip">JavaScript</li>
+          <li class="sh-profile-chip">Java</li>
+          <li class="sh-profile-chip">Python</li>
+          <li class="sh-profile-chip">Git</li>
+          <li class="sh-profile-chip">SQL</li>
+          <li class="sh-profile-chip">React</li>
+        </ul>
+      </div>
+
+      <div class="sh-profile-card">
+        <h2 class="sh-profile-cardTitle">Achievements</h2>
+        <div class="sh-profile-achievements">
+
+          <div class="sh-profile-achievement">
+            <span class="sh-profile-achievementIcon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v3a5 5 0 0 1-5 5 5 5 0 0 1-5-5V4Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 5H4v1a4 4 0 0 0 4 4M17 5h3v1a4 4 0 0 1-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 12v3m-3 5h6m-3-5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <p class="sh-profile-achievementTitle">Hackathon Participant</p>
+              <p class="sh-profile-achievementDesc">StudentHub Winter Hackathon 2025</p>
+            </div>
+          </div>
+
+          <div class="sh-profile-achievement">
+            <span class="sh-profile-achievementIcon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3m0 12v3m9-9h-3M6 12H3m13.4-6.4-2.1 2.1M8.7 15.3l-2.1 2.1m9.8 0-2.1-2.1M8.7 8.7 6.6 6.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </span>
+            <div>
+              <p class="sh-profile-achievementTitle">Attendance Star</p>
+              <p class="sh-profile-achievementDesc">95%+ attendance, Semester 2</p>
+            </div>
+          </div>
+
+          <div class="sh-profile-achievement">
+            <span class="sh-profile-achievementIcon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm6 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 19c.6-2.7 2.9-4.5 5.5-4.5s4.9 1.8 5.5 4.5M14.5 14.8c2.1.3 3.8 1.9 4.2 4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <p class="sh-profile-achievementTitle">Volunteer</p>
+              <p class="sh-profile-achievementDesc">Peer-mentoring program, 40+ hours</p>
+            </div>
+          </div>
+
+          <div class="sh-profile-achievement">
+            <span class="sh-profile-achievementIcon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </span>
+            <div>
+              <p class="sh-profile-achievementTitle">Best Project</p>
+              <p class="sh-profile-achievementDesc">Campus Navigator App, Dept. Showcase</p>
+            </div>
+          </div>
 
         </div>
+      </div>
 
-    </div>
+    </section>
 
-</section>
+    <!-- ============ CERTIFICATES ============ -->
+    <section class="sh-profile-card">
+      <div class="sh-profile-sectionHead">
+        <h2 class="sh-profile-cardTitle">Certificates</h2>
+        <button type="button" class="sh-profile-viewAllBtn">View All</button>
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 StudentHub | All Rights Reserved</p>
-    </footer>
+      <div class="sh-profile-certGrid">
+
+        <div class="sh-profile-certCard">
+          <span class="sh-profile-certIcon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 2v5h5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><text x="12" y="17.5" font-size="6.2" text-anchor="middle" fill="currentColor" font-family="Poppins, sans-serif" font-weight="700">PDF</text></svg>
+          </span>
+          <p class="sh-profile-certName">Web Development Bootcamp</p>
+          <p class="sh-profile-certDate">Completed 12 Jun 2026</p>
+        </div>
+
+        <div class="sh-profile-certCard">
+          <span class="sh-profile-certIcon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 2v5h5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><text x="12" y="17.5" font-size="6.2" text-anchor="middle" fill="currentColor" font-family="Poppins, sans-serif" font-weight="700">PDF</text></svg>
+          </span>
+          <p class="sh-profile-certName">Data Structures in Python</p>
+          <p class="sh-profile-certDate">Completed 02 May 2026</p>
+        </div>
+
+        <div class="sh-profile-certCard">
+          <span class="sh-profile-certIcon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 2v5h5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><text x="12" y="17.5" font-size="6.2" text-anchor="middle" fill="currentColor" font-family="Poppins, sans-serif" font-weight="700">PDF</text></svg>
+          </span>
+          <p class="sh-profile-certName">UI/UX Design Basics</p>
+          <p class="sh-profile-certDate">Completed 20 Mar 2026</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ RECENT ACTIVITY ============ -->
+    <section class="sh-profile-card">
+      <h2 class="sh-profile-cardTitle">Recent Activity</h2>
+      <ol class="sh-profile-timeline">
+        <li class="sh-profile-timelineItem">
+          <span class="sh-profile-timelineDot"></span>
+          <div class="sh-profile-timelineBody">
+            <span class="sh-profile-timelineWhen">Today</span>
+            <p class="sh-profile-timelineText">Assignment Submitted — Data Structures Lab 4</p>
+          </div>
+        </li>
+        <li class="sh-profile-timelineItem">
+          <span class="sh-profile-timelineDot"></span>
+          <div class="sh-profile-timelineBody">
+            <span class="sh-profile-timelineWhen">Yesterday</span>
+            <p class="sh-profile-timelineText">Workshop Registration — Intro to Cloud Computing</p>
+          </div>
+        </li>
+        <li class="sh-profile-timelineItem">
+          <span class="sh-profile-timelineDot"></span>
+          <div class="sh-profile-timelineBody">
+            <span class="sh-profile-timelineWhen">18 July</span>
+            <p class="sh-profile-timelineText">Certificate Uploaded — UI/UX Design Basics</p>
+          </div>
+        </li>
+        <li class="sh-profile-timelineItem">
+          <span class="sh-profile-timelineDot"></span>
+          <div class="sh-profile-timelineBody">
+            <span class="sh-profile-timelineWhen">15 July</span>
+            <p class="sh-profile-timelineText">Attendance Marked — Present, all sessions</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 StudentHub. All rights reserved.</p>
+  </footer>
 
 </body>
-
 </html>
