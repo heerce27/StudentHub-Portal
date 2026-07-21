@@ -3,9 +3,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root{
- --primary:#4E6E81;--primary-dark:#3D5B6D;--accent:#C98A95;--accent-hover:#B97886;
- --background:#F8F6F3;--card:#fff;--sage:#8FA98A;--text:#2F2F2F;--text-light:#6B6B6B;
- --border:#D8D8D8;--shadow:0 10px 25px rgba(0,0,0,.08);--radius:16px;
+    --primary: #2F5D7E;
+    --primary-dark: #21445C;
+
+    --accent: #A85D6A;
+    --accent-hover: #8E4C57;
+
+    --background: #EEF2F5;
+    --card: #FFFFFF;
+
+    --sage: #6F8E73;
+
+    --text: #1E2933;
+    --text-light: #4B5563;
+
+    --border: #C9D3DC;
+
+    --shadow: 0 10px 25px rgba(0,0,0,0.12);
+    --radius: 14px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Poppins,sans-serif;background:linear-gradient(135deg,#F8F6F3,#EEF3F6);color:var(--text);min-height:100vh}
