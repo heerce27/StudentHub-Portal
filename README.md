@@ -17,7 +17,7 @@ StudentHub is a web-based student portal developed using HTML, CSS, PHP, and MyS
 - Fee Details
 - Events
 - Feedback
-- Contact Page
+  
 
 ---
 
@@ -27,6 +27,7 @@ Frontend
 - HTML5
 - CSS3
 
+## Technologies that will be used
 Backend
 - PHP
 
