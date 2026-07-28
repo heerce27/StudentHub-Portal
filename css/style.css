@@ -15,6 +15,12 @@
  --border:rgba(255,255,255,.35);
  --radius:20px;
  --shadow:0 20px 60px rgba(15,23,42,.12);
+ 
+ --background:#F8FAFC;
+--card:rgba(255,255,255,.75);
+--text-light:#64748B;
+--sage:#22C55E;
+--accent-hover:#7C3AED;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -125,12 +131,6 @@ header{flex-direction:column;gap:14px;top:8px}
 nav ul{flex-wrap:wrap;justify-content:center}
 .hero{padding-top:70px}
 }
-
-/* ===================================================
-   StudentHub UI v2 - Part 2 (Append below Part 1)
-   Hero, Feature Cards, Forms, Tables, Dashboard
-=================================================== */
-
 /* ---------- Decorative background ---------- */
 .hero{
     position:relative;
@@ -166,19 +166,15 @@ nav ul{flex-wrap:wrap;justify-content:center}
     padding:60px;
     box-shadow:0 25px 70px rgba(15,23,42,.12);
 }
-
 /* ---------- Section ---------- */
-
 .section{
     padding:70px 0;
 }
-
 .section-title{
     text-align:center;
     margin-bottom:16px;
     font:700 clamp(2rem,4vw,3rem) "Bree Serif",serif;
 }
-
 .section-subtitle{
     text-align:center;
     color:#64748B;
@@ -188,12 +184,10 @@ nav ul{flex-wrap:wrap;justify-content:center}
 }
 
 /* ---------- Feature Cards ---------- */
-
 .feature-card{
     text-align:center;
     padding:35px 28px;
 }
-
 .feature-icon{
     width:70px;
     height:70px;
@@ -211,14 +205,11 @@ nav ul{flex-wrap:wrap;justify-content:center}
 .feature-card h3{
     margin-bottom:14px;
 }
-
 .feature-card p{
     color:#64748B;
     line-height:1.8;
 }
-
 /* ---------- Forms ---------- */
-
 .form-box{
     width:min(470px,94%);
     margin:70px auto;
@@ -229,28 +220,23 @@ nav ul{flex-wrap:wrap;justify-content:center}
     padding:40px;
     box-shadow:0 25px 70px rgba(15,23,42,.12);
 }
-
 .form-box h2{
     text-align:center;
     margin-bottom:10px;
 }
-
 .form-box p{
     text-align:center;
     color:#64748B;
     margin-bottom:28px;
 }
-
 .form-group{
     margin-bottom:20px;
 }
-
 .form-group label{
     display:block;
     margin-bottom:8px;
     font-weight:600;
 }
-
 .form-group input,
 .form-group select,
 .form-group textarea{
@@ -270,27 +256,22 @@ nav ul{flex-wrap:wrap;justify-content:center}
     box-shadow:0 0 0 5px rgba(59,130,246,.12);
     transform:translateY(-2px);
 }
-
 /* ---------- Tables ---------- */
-
 .table-wrapper{
     overflow:auto;
     border-radius:20px;
     box-shadow:0 20px 60px rgba(15,23,42,.12);
 }
-
 table{
     width:100%;
     border-collapse:collapse;
     background:rgba(255,255,255,.82);
     backdrop-filter:blur(12px);
 }
-
 th{
     background:linear-gradient(135deg,#3B82F6,#8B5CF6);
     color:#fff;
 }
-
 th,td{
     padding:16px;
 }
@@ -298,28 +279,22 @@ th,td{
 tbody tr{
     transition:.25s;
 }
-
 tbody tr:nth-child(even){
     background:#f7faff;
 }
-
 tbody tr:hover{
     background:#edf4ff;
 }
-
 /* ---------- Dashboard ---------- */
-
 .dashboard-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:28px;
 }
-
 .stat-card{
     text-align:center;
     padding:32px;
 }
-
 .stat-card h2{
     font-size:2.2rem;
     color:#3B82F6;
@@ -329,10 +304,463 @@ tbody tr:hover{
 .stat-card span{
     color:#64748B;
 }
-
 /* ---------- Footer ---------- */
-
 footer p{
     color:#475569;
 }
+/* StudentHub UI v2 - Part 3
+   Additional Pages & Components*/
+/* =============================
+   Page Header */
+.page-header{
+    text-align:center;
+    padding:70px 20px 40px;
+}
 
+.page-header h1{
+    font:700 clamp(2rem,5vw,3.5rem) "Bree Serif",serif;
+    margin-bottom:12px;
+}
+
+.page-header p{
+    max-width:700px;
+    margin:auto;
+    color:var(--muted);
+    line-height:1.8;
+}
+/* Search Box*/
+.search-box{
+    max-width:500px;
+    margin:30px auto;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:16px 22px;
+    border:none;
+    outline:none;
+    border-radius:50px;
+    background:rgba(255,255,255,.7);
+    backdrop-filter:blur(12px);
+    box-shadow:var(--shadow);
+}
+
+.search-box input:focus{
+    box-shadow:0 0 0 5px rgba(59,130,246,.15);
+}
+/* Event Cards*/
+.event-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.event-card{
+    overflow:hidden;
+    border-radius:22px;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(18px);
+    box-shadow:var(--shadow);
+    transition:.35s;
+}
+
+.event-card:hover{
+    transform:translateY(-10px);
+}
+
+.event-image{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.event-content{
+    padding:24px;
+}
+
+.event-date{
+    color:var(--primary);
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.event-content h3{
+    margin-bottom:12px;
+}
+
+.event-content p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* Profile Card*/
+.profile-card{
+    max-width:700px;
+    margin:50px auto;
+    text-align:center;
+}
+
+.profile-avatar{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:25px;
+    border:6px solid rgba(255,255,255,.8);
+    box-shadow:0 15px 40px rgba(59,130,246,.25);
+}
+
+.profile-card h2{
+    margin-bottom:10px;
+}
+
+.profile-card p{
+    color:var(--muted);
+}
+
+.profile-details{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:40px;
+}
+
+.detail-box{
+    padding:20px;
+    border-radius:18px;
+    background:rgba(255,255,255,.55);
+}
+/* Notice Board*/
+
+.notice-board{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.notice{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    padding:22px;
+    border-radius:20px;
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(16px);
+    box-shadow:var(--shadow);
+}
+
+.notice-icon{
+    width:55px;
+    height:55px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+}
+
+.notice h4{
+    margin-bottom:8px;
+}
+
+.notice p{
+    color:var(--muted);
+}
+/* Club Cards*/
+
+.club-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:28px;
+}
+
+.club-card{
+    text-align:center;
+    padding:35px;
+}
+
+.club-card img{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+    margin-bottom:20px;
+}
+
+.club-card h3{
+    margin-bottom:12px;
+}
+
+.club-card p{
+    color:var(--muted);
+}
+/*  Timetable*/
+
+.timetable{
+    overflow:auto;
+}
+
+.timetable table{
+    min-width:900px;
+}
+
+.timetable td{
+    text-align:center;
+}
+/* Gallery */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:.35s;
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+/* Contact Page*/
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:40px;
+}
+
+.contact-info h3{
+    margin-bottom:20px;
+}
+
+.contact-info p{
+    margin-bottom:18px;
+    color:var(--muted);
+}
+/* Sidebar*/
+
+.sidebar{
+    width:260px;
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
+    background:rgba(255,255,255,.7);
+    backdrop-filter:blur(18px);
+    padding:30px;
+    box-shadow:var(--shadow);
+}
+
+.sidebar ul{
+    list-style:none;
+    margin-top:40px;
+}
+
+.sidebar li{
+    margin-bottom:10px;
+}
+
+.sidebar a{
+    display:block;
+    padding:14px 18px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    color:#fff;
+}
+/*Admin Dashboard*/
+
+.admin-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.admin-card{
+    padding:28px;
+    border-radius:20px;
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(18px);
+    box-shadow:var(--shadow);
+}
+
+.admin-card h2{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+/* Progress Bar*/
+
+.progress{
+    width:100%;
+    height:12px;
+    background:#e5e7eb;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg,var(--primary),var(--accent));
+}
+/*Badge */
+
+.badge{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:50px;
+    background:rgba(59,130,246,.15);
+    color:var(--primary);
+    font-size:.85rem;
+    font-weight:600;
+}
+
+/* Pagination*/
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:50px 0;
+}
+
+.pagination a{
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:white;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.pagination a:hover,
+.pagination .active{
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    color:white;
+}
+/*Modal */
+
+.modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(6px);
+    z-index:999;
+}
+
+.modal-content{
+    width:min(550px,90%);
+    background:white;
+    padding:35px;
+    border-radius:24px;
+}
+/* Toast Message*/
+.toast{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    padding:16px 22px;
+    border-radius:15px;
+    color:white;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    box-shadow:var(--shadow);
+}
+/* =============================
+   Loading Spinner*/
+.loader{
+    width:65px;
+    height:65px;
+    border:6px solid rgba(59,130,246,.15);
+    border-top:6px solid var(--primary);
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+    margin:auto;
+}
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+/* =============================
+   Floating Action Button*/
+.fab{
+    position:fixed;
+    right:30px;
+    bottom:30px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    color:white;
+    font-size:28px;
+    box-shadow:0 15px 40px rgba(59,130,246,.3);
+    cursor:pointer;
+    transition:.3s;
+}
+.fab:hover{
+    transform:translateY(-6px) scale(1.08);
+}
+/* =============================
+   Fade Animation */
+.fade-in{
+    animation:fade .8s ease;
+}
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+/* =============================
+   Responsiv*/
+@media(max-width:900px){
+
+    .contact-grid,
+    .profile-details{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+    }
+}
+@media(max-width:650px){
+
+    .page-header{
+        padding-top:40px;
+    }
+    .event-grid,
+    .club-grid,
+    .gallery{
+        grid-template-columns:1fr;
+    }
+    .profile-avatar{
+        width:110px;
+        height:110px;
+    }
+}
