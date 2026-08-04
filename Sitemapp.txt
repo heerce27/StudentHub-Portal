@@ -1,0 +1,13 @@
+StudentHub Portal
+│
+├── Home
+├── Login 
+│   └── Dashboard 
+│       ├── Profile
+│       ├── Attendance
+│       ├── Results
+│       ├── Fees
+│       ├── Events
+│       ├── Certificates
+│       └── Feedback
+└── Register
