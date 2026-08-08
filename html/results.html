@@ -2,28 +2,73 @@
 <html lang="en">
 
 <head>
+    <script>
+    if (localStorage.getItem("studentHubSidebar") === "open") {
+        document.documentElement.classList.add("sidebar-should-open");
+    }
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentHub | Results</title>
 
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
-
 <header>
+    <div class="header-left">
+        <button class="menu-btn" id="menuButton" type="button">
+    ☰
+</button>
 
-    <div class="logo">StudentHub</div>
+<div id="sidebar-container"></div>
+        <div class="logo">StudentHub</div>
+    </div>
+    <div class="header-right">
+        <a href="../html/profile.html">Profile</a>
+        <a href="../html/login.html">Logout</a>
+    </div>
 
-    <nav>
+</header>
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+        StudentHub
+    </div>
+
+    <nav class="sidebar-links">
         <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="login.html">Logout</a></li>
+            <li>
+                <a href="dashboard.html">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="events.html">Events</a>
+            </li>
+
+            <li>
+                <a href="attendance.html">Attendance</a>
+            </li>
+
+            <li>
+                <a href="results.html">Results</a>
+            </li>
+
+            <li>
+                <a href="certificates.html">Certificates</a>
+            </li>
+
+            <li>
+                <a href="fees.html">Fees</a>
+            </li>
+
+            <li>
+                <a href="feedback.html">Feedback</a>
+            </li>
         </ul>
     </nav>
 
-</header>
+</aside> 
+<div id="overlay" class="overlay"></div>
 
 <div class="container">
 
@@ -187,24 +232,15 @@
             <p><strong>Backlogs:</strong> None</p>
 
             <br>
-
             <p><strong>Overall Standing:</strong> Good Academic Performance</p>
-
             <br>
-
             <button class="btn btn-primary">Download Marksheet</button>
-
         </div>
-
     </div>
-
 </div>
-
 <footer>
-
     © 2026 StudentHub | Results Portal
-
 </footer>
-
+<script src="../js/script.js"></script>
 </body>
 </html>
