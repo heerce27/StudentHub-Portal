@@ -75,7 +75,7 @@ header nav ul{
 a{text-decoration:none;color:inherit}
 
 .hero{
-padding:100px 20px 80px;
+padding: 55px 20px 70px;
 text-align:center;
 }
 .hero h1{
@@ -88,25 +88,51 @@ margin:auto;
 line-height:1.8;
 color:var(--muted);
 }
-.btn{
-display:inline-block;
-padding:14px 28px;
-border-radius:14px;
-transition:.3s;
-font-weight:600;
-margin-top:36px;
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
 }
-.btn-primary{
-background:linear-gradient(135deg,var(--primary),var(--accent));
-color:#fff;
-box-shadow:0 12px 35px rgba(59,130,246,.25);
+
+/* Primary Button - Login / Get Started */
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    border: 1px solid transparent;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.22);
 }
-.btn-primary:hover{transform:translateY(-4px)}
-.btn-secondary{
-background:rgba(255,255,255,.6);
-backdrop-filter:blur(10px);
-border:1px solid var(--border);
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.30);
 }
+
+/* Secondary Button - Register */
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    color: var(--primary-dark);
+    border: 1px solid rgba(59, 130, 246, 0.18);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(59, 130, 246, 0.35);
+    color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
+} 
 .card{
 background:var(--surface);
 backdrop-filter:blur(18px);
@@ -168,7 +194,7 @@ nav ul{flex-wrap:wrap;justify-content:center}
     backdrop-filter:blur(20px);
     border:1px solid rgba(255,255,255,.4);
     border-radius:28px;
-    padding:60px;
+    padding:42px 40px;
     box-shadow:0 25px 70px rgba(15,23,42,.12);
 }
 /* ---------- Section ---------- */
