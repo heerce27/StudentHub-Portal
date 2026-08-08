@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    if (localStorage.getItem("studentHubSidebar") === "open") {
+        document.documentElement.classList.add("sidebar-should-open");
+    }
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentHub | Fees</title>
@@ -11,27 +16,66 @@
 <body>
 
 <header>
+    <div class="header-left">
+        <button class="menu-btn" id="menuButton" type="button">
+    ☰
+</button>
 
-    <div class="logo">StudentHub</div>
+<div id="sidebar-container"></div>
+        <div class="logo">StudentHub</div>
+    </div>
+    <div class="header-right">
+        <a href="../html/profile.html">Profile</a>
+        <a href="../html/login.html">Logout</a>
+    </div>
 
-    <nav>
+</header>
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+        StudentHub
+    </div>
+
+    <nav class="sidebar-links">
         <ul>
-            <li><a href="../html/dashboard.html">Dashboard</a></li>
-            <li><a href="../html/profile.html">Profile</a></li>
-            <li><a href="../html/login.html">Logout</a></li>
+            <li>
+                <a href="dashboard.html">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="events.html">Events</a>
+            </li>
+
+            <li>
+                <a href="attendance.html">Attendance</a>
+            </li>
+
+            <li>
+                <a href="results.html">Results</a>
+            </li>
+
+            <li>
+                <a href="certificates.html">Certificates</a>
+            </li>
+
+            <li>
+                <a href="fees.html">Fees</a>
+            </li>
+
+            <li>
+                <a href="feedback.html">Feedback</a>
+            </li>
         </ul>
     </nav>
 
-</header>
+</aside> 
+<div id="overlay" class="overlay"></div>
 
 <div class="container">
 
     <!-- Hero Section -->
-
     <section class="hero">
-
         <h1>Fee Management</h1>
-
         <p>
             View your fee status, upcoming payments, and payment history.
         </p>
@@ -39,7 +83,6 @@
     </section>
 
     <!-- Statistics -->
-
     <div class="grid attendance-grid">
 
         <div class="card stats-card">
@@ -110,11 +153,8 @@
     </div>
 
     <!-- Payment History -->
-
     <div class="card">
-
         <h2>Recent Payments</h2>
-
         <table>
 
             <tr>
@@ -150,19 +190,14 @@
     </div>
 
     <!-- Bottom Cards -->
-
     <div class="grid attendance-grid">
 
         <div class="card">
 
-            <h3>📢 Notice</h3>
-
+            <h3> Notice</h3>
             <br>
-
             <p>Your examination fee is pending.</p>
-
             <br>
-
             <p>Please complete the payment before <strong>30 August 2026</strong>.</p>
 
         </div>
@@ -170,32 +205,19 @@
         <div class="card">
 
             <h3>Payment Options</h3>
-
             <br>
-
             <p>✔ UPI</p>
-
             <p>✔ Debit/Credit Card</p>
-
             <p>✔ Net Banking</p>
-
             <p>✔ Demand Draft</p>
-
             <br>
-
             <button class="btn">Pay Now</button>
-
         </div>
-
     </div>
-
 </div>
-
 <footer>
-
     © 2026 StudentHub | Fee Management Portal
-
 </footer>
-
+<script src="../js/script.js"></script>
 </body>
 </html>
