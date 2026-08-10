@@ -1,0 +1,112 @@
+Challenges & Learnings 
+Challenges Faced:
+I faced problems like proper alignment of tables and different headings setting
+I also faced problems while making a sidebar using an aside tag, as it kept being on other pages while hiding them. 
+
+Problem: It kept coming in horizontal style instead of vertical . )
+
+Then I faced many challenges while designing  style.css like fixing button alignment and spacing on different pages, Preventing text and content from spreading too much horizontally, Managing card widths and alignment, as some cards were stretching across the page, Making the sidebar and menu button work properly without affecting the existing layout.
+
+Learning Outcomes:
+
+I learned to use different html tags and made html pages using that for studenthub portal
+Then I explored some solutions for it and found an overlay method.
+Also learned about progress tag . It is used for showing progress in systems like we have for our phone’s brightness system. 
+I also learned how a sidebar is made using an aside tag, if you want to make one for all, js and live server will be needed but since i did not use live server for that, i added it in  each page’s html. 
+
+While creating  css i learned 
+How to use CSS Flexbox and Grid for arranging website elements.
+How to create responsive layouts using media queries.
+How to choose and maintain a consistent colour, font, spacing, and button style.
+How to fix common layout problems like overlapping elements, stretched cards, and alignment issues.
+How to organize CSS so that the same styling can be reused across different pages.
+I also got better at debugging CSS and improving a design step by step instead of changing everything at once.
+Css Notes:
+1. CSS Variables (:root)
+- Stores reusable values like colors, radius and shadows.
+- var(--primary) is used to reuse a variable.
+- Makes the theme easier to change.
+
+2. Universal Selector (*)
+* { margin:0; padding:0; box-sizing:border-box; }
+- Resets default browser spacing.
+- border-box includes content, padding and border in width/height.
+
+3. Body & Background
+- Uses linear-gradient and radial-gradient for the modern background.
+- overflow-x:hidden prevents horizontal scrolling.
+- position:relative is used for positioning/background effects.
+4. Flexbox
+- display:flex creates a flexible layout.
+- justify-content controls the main-axis alignment.
+- align-items controls the cross-axis alignment.
+- Used mainly for header/menu/button alignment.
+
+5. CSS Grid
+- display:grid creates a grid layout.
+- repeat(3, 1fr) creates 3 equal columns.
+- fr means fraction of available space.
+- Used for dashboard/cards.
+- Grid is mainly two-dimensional; Flexbox is mainly one-dimensional.
+
+6. Responsive Design
+- Uses @media(max-width:900px) and @media(max-width:600px).
+- Dashboard changes from 3 columns to 2 and then 1.
+- Makes the website work on desktop, tablet and mobile.
+
+7. Buttons
+- .btn, .btn-primary and .btn-secondary are reusable classes.
+- :hover changes styling when the mouse is over an element.
+- transform:translateY(-3px) moves an element upward.
+
+8. Glassmorphism
+- Uses rgba() transparent backgrounds and backdrop-filter:blur().
+- Creates a glass-like UI.
+- Used in header, cards and forms.
+- RGBA = Red, Green, Blue, Alpha (transparency).
+
+9. Cards
+- Use background, border-radius, padding and box-shadow.
+- :hover with transform creates a floating effect.
+- border-radius makes corners rounded.
+- box-shadow gives depth/elevation.
+
+10. Forms
+- Inputs/select/textarea use width:100%.
+- :focus styles an input when it is selected.
+- Difference: :hover = mouse over; :focus = element is selected/active.
+
+11. Sidebar
+- position:fixed keeps it attached to the viewport.
+- height:100vh means full viewport height.
+- transform:translateX(-100%) hides it outside the screen.
+- .sidebar.active uses translateX(0) to show it.
+- z-index controls stacking order.
+
+12. Overlay
+- Covers the page when the sidebar is open.
+- Uses position:fixed, full width/height and transparency.
+- Helps focus attention on the sidebar and close it by clicking outside.
+
+13. Animations
+- @keyframes defines animation stages.
+- spin is used for the loading spinner.
+- fade is used for fade-in effects.
+- infinite means the animation repeats continuously.
+
+14. Transition vs Animation
+- transition = smooth change between states, e.g. hover.
+- animation = can run automatically using @keyframes.
+
+15. object-fit:cover
+- Makes an image fill its container while keeping its aspect ratio.
+- Excess parts may be cropped.
+- Used for event/gallery/profile images.
+
+16. z-index
+- Controls stacking order of overlapping elements.
+- Higher z-index generally appears above lower z-index.
+- Sidebar is above the overlay.
+
+
+
