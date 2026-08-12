@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .faq-answer {
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+        
+    </style>
+    <body>
+        <div class ="faq">
+            <button class="faq-question" >
+                What is studenthub?
+            </button>
+            <div class ="faq-answer">
+                StudentHub is a platform that connects students with resources, communities, and opportunities to enhance their academic and social experiences.
+            </div>
+        </div>
+    <div>
+        <button class="faq-question" >
+                What is webp?
+            </button>
+            <div class ="faq-answer">
+                lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+    </div>
+    <div>
+        <button class="faq-question" >
+                What is MySQL?
+            </button>
+            <div class ="faq-answer">
+                lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+    </div>
+     
+    <script>
+        var btn = document.querySelectorAll(".faq-question");
+        var answer = document.querySelectorAll(".faq-answer");
+        btn.forEach(function(btn){
+            btn.addEventListener("click",function(){
+                var result=btn.nextElementSibling;
+                result.classList.toggle("show");
+            })
+        });
+    </script>
+</body>
+</html>

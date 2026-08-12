@@ -21,6 +21,7 @@ How to choose and maintain a consistent colour, font, spacing, and button style.
 How to fix common layout problems like overlapping elements, stretched cards, and alignment issues.
 How to organize CSS so that the same styling can be reused across different pages.
 I also got better at debugging CSS and improving a design step by step instead of changing everything at once.
+
 Css Notes:
 1. CSS Variables (:root)
 - Stores reusable values like colors, radius and shadows.
@@ -107,6 +108,10 @@ Css Notes:
 - Controls stacking order of overlapping elements.
 - Higher z-index generally appears above lower z-index.
 - Sidebar is above the overlay.
+
+
+JS implementation:
+1. 
 
 
 

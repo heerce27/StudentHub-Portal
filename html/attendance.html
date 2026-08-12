@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
+    <!-- <script>
     if (localStorage.getItem("studentHubSidebar") === "open") {
         document.documentElement.classList.add("sidebar-should-open");
     }
-</script>
+</script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentHub | Attendance</title>
@@ -29,43 +29,40 @@
 
 </header>
 <aside class="sidebar" id="sidebar">
-
     <div class="sidebar-header">
         StudentHub
     </div>
-
     <nav class="sidebar-links">
         <ul>
             <li>
                 <a href="dashboard.html">Dashboard</a>
             </li>
-
+            <li>
+                <a href="Profile.html">Profile</a>
+            </li>
             <li>
                 <a href="events.html">Events</a>
             </li>
-
             <li>
                 <a href="attendance.html">Attendance</a>
             </li>
-
             <li>
                 <a href="results.html">Results</a>
             </li>
-
             <li>
                 <a href="certificates.html">Certificates</a>
             </li>
-
             <li>
                 <a href="fees.html">Fees</a>
             </li>
-
             <li>
                 <a href="feedback.html">Feedback</a>
             </li>
+            <li>
+                <a href="login.html"> Logout </a>
+            </li>
         </ul>
     </nav>
-
 </aside> 
 <div id="overlay" class="overlay"></div>
 <div class="container">
@@ -74,12 +71,10 @@
     <section class="hero attendance-hero">
 
         <h1>Attendance Dashboard</h1>
-
         <p>
             Monitor your attendance across all subjects and stay above the
             required attendance percentage.
         </p>
-
     </section>
 
     <!-- Statistics -->
@@ -151,9 +146,7 @@
                 <p><strong>86%</strong></p>
                 <span class="badge badge-green">Safe</span>
             </div>
-
         </div>
-
     </div>
 
     <!-- Table -->
@@ -205,43 +198,27 @@
         <div class="card">
 
             <h3>Notifications</h3>
-
             <br>
-
             <p>Web Development attendance is below 75%.</p>
-
             <br>
-
             <p>Attend the next 3 classes to stay eligible.</p>
 
         </div>
 
         <div class="card">
-
             <h3>Attendance Rules</h3>
-
             <br>
-
             <p><strong>Minimum Attendance:</strong> 75%</p>
-
             <br>
-
             <p>Medical leave requires valid proof.</p>
-
             <br>
-
             <p>Students below 75% may not be eligible for exams.</p>
-
         </div>
-
     </div>
-
 </div>
 
 <footer>
-
     © 2026 StudentHub | Attendance Portal
-
 </footer>
 <script src="../js/script.js"></script> 
 </body>
