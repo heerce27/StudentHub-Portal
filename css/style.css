@@ -34,6 +34,7 @@ radial-gradient(circle at 15% 20%,rgba(59,130,246,.22),transparent 28%),
 radial-gradient(circle at 85% 10%,rgba(139,92,246,.22),transparent 26%),
 radial-gradient(circle at 80% 80%,rgba(236,72,153,.14),transparent 22%),
 linear-gradient(135deg,#fbfdff,#eef5ff 45%,#fdf9ff);
+/*background-image: url(https://th.bing.com/th/id/OIP.1Vcfg70wQn4dJTc-ztGEZQHaFS?w=263&h=188&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3); */
 overflow-x:hidden;
 position:relative;
 }
