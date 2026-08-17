@@ -21,6 +21,28 @@
 --text-light:#64748B;
 --sage:#22C55E;
 --accent-hover:#7C3AED;
+
+--input-bg:rgba(255,255,255,.9);
+--table-bg:rgba(255,255,255,.82);
+--sidebar-bg:#ffffff;
+}
+
+body.dark{
+    --bg:#0F172A;
+    --background:#0F172A;
+
+    --surface:rgba(30,41,59,.75);
+    --card:rgba(30,41,59,.80);
+
+    --text:#F8FAFC;
+    --muted:#CBD5E1;
+    --text-light:#CBD5E1;
+
+    --border:rgba(148,163,184,.20);
+
+    --input-bg:#1E293B;
+    --table-bg:rgba(30,41,59,.85);
+    --sidebar-bg:#111827;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -37,7 +59,19 @@ linear-gradient(135deg,#fbfdff,#eef5ff 45%,#fdf9ff);
 /*background-image: url(https://th.bing.com/th/id/OIP.1Vcfg70wQn4dJTc-ztGEZQHaFS?w=263&h=188&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3); */
 overflow-x:hidden;
 position:relative;
+
 }
+
+body.dark{
+    background:
+        radial-gradient(circle at 15% 20%,rgba(59,130,246,.12),transparent 28%),
+        radial-gradient(circle at 85% 10%,rgba(139,92,246,.12),transparent 26%),
+        radial-gradient(circle at 80% 80%,rgba(236,72,153,.08),transparent 22%),
+        linear-gradient(135deg,#0F172A,#111827 45%,#172033);
+
+    color:var(--text);
+}
+
 body::before,body::after{
 content:"";
 position:fixed;
@@ -772,7 +806,7 @@ footer p{
     width: 250px;
     height: 100vh;
 
-    background: #ffffff;
+    background: var(--sidebar-bg);
 
     transform: translateX(-100%);
     transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
@@ -813,7 +847,9 @@ footer p{
     margin: 4px 10px;
 
     text-decoration: none;
-    color: #334155;
+  
+    color: var(--text);
+
 
     border-radius: 12px;
 
@@ -902,6 +938,100 @@ footer p{
 .menu-btn:active {
     transform: scale(0.92);
 }
+
+/* ==========================================
+   DARK MODE BUTTON
+========================================== */
+
+.theme-toggle{
+    width:42px;
+    height:42px;
+
+    border:none;
+    border-radius:10px;
+
+    background:rgba(255,255,255,.55);
+    color:var(--text);
+
+    font-size:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        transform .2s ease;
+}
+
+.theme-toggle:hover{
+    background:rgba(59,130,246,.12);
+    transform:scale(1.05);
+}
+
+body.dark .theme-toggle{
+    background:rgba(30,41,59,.8);
+    color:#F8FAFC;
+}
+
+body.dark .form-group input,
+body.dark .form-group select,
+body.dark .form-group textarea{
+    background:var(--input-bg);
+    color:var(--text);
+    border-color:#475569;
+}
+
+body.dark .form-group input::placeholder,
+body.dark .form-group textarea::placeholder{
+    color:#94A3B8;
+}
+
+body.dark table{
+    background:var(--table-bg);
+}
+
+body.dark tbody tr:nth-child(even){
+    background:#1E293B;
+}
+
+body.dark tbody tr:hover{
+    background:#263449;
+}
+
+body.dark .profile-overview,
+body.dark .profile-section{
+    background:rgba(30,41,59,.75);
+    border-color:rgba(148,163,184,.18);
+}
+
+body.dark .information-item{
+    background:rgba(15,23,42,.55);
+    border-color:rgba(148,163,184,.15);
+}
+
+body.dark .information-item:hover{
+    background:rgba(30,41,59,.9);
+}
+
+body.dark .document-item{
+    background:rgba(15,23,42,.55);
+}
+
+body.dark .document-item:hover{
+    background:rgba(30,41,59,.9);
+}
+
+/* body.dark header{
+    background:rgba(15,23,42,.65);
+    border-color:rgba(148,163,184,.18);
+} */
+body.dark footer{
+    background:rgba(15,23,42,.65);
+}
+
 .header-left{
     display:flex;
     align-items:center;
@@ -961,10 +1091,6 @@ html.sidebar-should-open .overlay {
     }
 }
 
-/* =========================================
-   STUDENT PROFILE - STUDENTHUB
-========================================= */
-
 /* =========================================================
    STUDENT PROFILE PAGE
 ========================================================= */
@@ -996,49 +1122,34 @@ html.sidebar-should-open .overlay {
     display: flex;
     align-items: center;
     gap: 25px;
-
     padding: 30px;
-
     background: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(18px);
-
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 24px;
-
     box-shadow: var(--shadow);
-
     margin-bottom: 28px;
 }
-
 
 /* Profile initials */
 
 .profile-placeholder {
     width: 105px;
     height: 105px;
-
     flex-shrink: 0;
-
     border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--accent)
-    );
-
-    color: white;
-
-    font: 700 2rem "Bree Serif", serif;
-
+    overflow: hidden;
+    border: 4px solid rgba(255,255,255,.8);
     box-shadow:
         0 12px 30px rgba(59, 130, 246, 0.25);
 }
 
+.profile-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
 /* Student information */
 
@@ -1060,7 +1171,6 @@ html.sidebar-should-open .overlay {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-
     color: var(--muted);
     font-size: 0.9rem;
 }
@@ -1069,19 +1179,14 @@ html.sidebar-should-open .overlay {
     color: var(--text);
 }
 
-
 /* Active badge */
 
 .profile-badge {
     display: inline-block;
-
     padding: 5px 12px;
-
     border-radius: 50px;
-
     background: rgba(34, 197, 94, 0.12);
     color: #16a34a;
-
     font-size: 0.8rem;
     font-weight: 600;
 }
@@ -1101,17 +1206,12 @@ html.sidebar-should-open .overlay {
 .profile-section {
     background: rgba(255, 255, 255, 0.68);
     backdrop-filter: blur(18px);
-
     border: 1px solid rgba(255, 255, 255, 0.45);
     border-radius: 22px;
-
     padding: 30px;
-
     box-shadow: var(--shadow);
-
     margin-bottom: 28px;
 }
-
 
 /* Section heading */
 
@@ -1145,7 +1245,6 @@ html.sidebar-should-open .overlay {
     height: 100%;
 }
 
-
 /* =========================================================
    INFORMATION GRID
 ========================================================= */
@@ -1156,59 +1255,43 @@ html.sidebar-should-open .overlay {
     gap: 16px;
 }
 
-
 /* Used for contact/address/family/ID sections */
 
 .information-grid.single-column {
     grid-template-columns: 1fr;
 }
 
-
 /* Individual information box */
 
 .information-item {
     padding: 17px 18px;
-
     border-radius: 15px;
-
     background: rgba(248, 250, 252, 0.82);
-
     border: 1px solid rgba(148, 163, 184, 0.12);
-
     transition: 0.25s ease;
 }
 
 .information-item:hover {
     transform: translateY(-2px);
-
     background: rgba(255, 255, 255, 0.95);
-
     box-shadow:
         0 8px 20px rgba(15, 23, 42, 0.06);
 }
 
 .information-item span:first-child {
     display: block;
-
     color: var(--muted);
-
     font-size: 0.78rem;
-
     margin-bottom: 6px;
 }
 
 .information-item strong {
     display: block;
-
     color: var(--text);
-
     font-size: 0.94rem;
-
     font-weight: 600;
-
     word-break: break-word;
 }
-
 
 /* =========================================================
    TABLE
@@ -1234,23 +1317,17 @@ html.sidebar-should-open .overlay {
     font-size: 0.9rem;
 }
 
-
 /* =========================================================
    STATUS BADGES
 ========================================================= */
 
 .status-badge {
     display: inline-block;
-
     padding: 5px 11px;
-
     border-radius: 50px;
-
     font-size: 0.76rem;
-
     font-weight: 600;
 }
-
 
 /* Approved */
 
@@ -1259,14 +1336,12 @@ html.sidebar-should-open .overlay {
     color: #15803d;
 }
 
-
 /* Pending */
 
 .status-badge.pending {
     background: rgba(245, 158, 11, 0.14);
     color: #b45309;
 }
-
 
 /* =========================================================
    DOCUMENT LIST
@@ -1280,45 +1355,32 @@ html.sidebar-should-open .overlay {
 
 .document-item {
     display: flex;
-
     align-items: center;
     justify-content: space-between;
-
     gap: 20px;
-
     padding: 17px 19px;
-
     border-radius: 15px;
-
     background: rgba(248, 250, 252, 0.82);
-
     border: 1px solid rgba(148, 163, 184, 0.12);
-
     transition: 0.25s ease;
 }
 
 .document-item:hover {
     background: rgba(255, 255, 255, 0.95);
-
     transform: translateX(3px);
 }
 
 .document-item strong {
     display: block;
-
     font-size: 0.94rem;
-
     margin-bottom: 3px;
 }
 
 .document-item small {
     display: block;
-
     color: var(--muted);
-
     font-size: 0.78rem;
 }
-
 
 /* =========================================================
    RESPONSIVE
@@ -1335,7 +1397,6 @@ html.sidebar-should-open .overlay {
     }
 
 }
-
 
 @media (max-width: 700px) {
 
@@ -1360,9 +1421,7 @@ html.sidebar-should-open .overlay {
     .information-grid {
         grid-template-columns: 1fr;
     }
-
 }
-
 
 @media (max-width: 500px) {
 
@@ -1379,6 +1438,7 @@ html.sidebar-should-open .overlay {
         width: 90px;
         height: 90px;
     }
+    
 
     .profile-intro h2 {
         font-size: 1.6rem;
