@@ -110,6 +110,12 @@ Css Notes:
 - Sidebar is above the overlay.
 
 
+Small_notes on css:
+A radial gradient spreads colors outward from a point, like a glow or spotlight.
+A linear gradient changes color in a straight direction.
+135deg: Controls the direction of the gradient.It gives a diagonal direction roughly like: ↘
+
+
 JS implementation:
 1. 
 

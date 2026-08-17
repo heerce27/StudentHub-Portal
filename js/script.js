@@ -91,4 +91,36 @@ if (loginForm) {
     });
 }
 
+// ==========================================
+// DARK MODE
+// ==========================================
+
+const themeToggle = document.getElementById("themeToggle");
+
+if (themeToggle) {
+
+    // Restore saved theme
+    const savedTheme = localStorage.getItem("studentHubTheme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        themeToggle.textContent = "☀️";
+    }
+
+    // Toggle dark mode
+    themeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+            localStorage.setItem("studentHubTheme", "dark");
+            themeToggle.textContent = "☀️";
+        } else {
+            localStorage.setItem("studentHubTheme", "light");
+            themeToggle.textContent = "🌙";
+        }
+
+    });
+}
+
 });
