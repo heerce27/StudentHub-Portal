@@ -117,7 +117,15 @@ A linear gradient changes color in a straight direction.
 
 
 JS implementation:
-1. 
+1. document.addEventListener("DOMContentLoaded", function () { : 
+   This means:
+   Don't run my JavaScript until the HTML page has completely loaded.
+2. alert() :
+   shows the popup.
+3. localStorage is browser storage.
+4. event.stopPropagation();
+   prevents the click from propagating to other elements.
+5. 
 
 
 

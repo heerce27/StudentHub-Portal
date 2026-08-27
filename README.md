@@ -34,8 +34,8 @@ Backend
 Database
 - MySQL
 
-Tools
-- XAMPP
+## Tools
+ - XAMPP
 - Visual Studio Code
 - Git
 - GitHub
