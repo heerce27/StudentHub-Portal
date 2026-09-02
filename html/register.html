@@ -1,109 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>StudentHub | Register</title>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- Header -->
+    <!-- ================= HEADER ================= -->
+
     <header>
 
         <div class="logo">
-             StudentHub
+            StudentHub
         </div>
 
         <nav>
+
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html">Register</a></li>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.html">
+                        Login
+                    </a>
+                </li>
+
+                <li>
+                    <a href="register.html">
+                        Register
+                    </a>
+                </li>
+
             </ul>
+
         </nav>
 
     </header>
 
-    <!-- Register Section -->
-    <section class="register-section" >
 
-        <div class="form-box">
+    <!-- ================= REGISTER SECTION ================= -->
 
-            <h2>Create Your Account</h2>
+    <main>
 
-            <p class="form-subtitle">
-                Join StudentHub and stay connected with campus events,
-                attendance, notices and more.
-            </p>
+        <section class="register-section">
 
-            <form id="registerForm">
+            <div class="form-box">
 
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="Enter your full name" id="fullname">
-                </div>
+                <h2>
+                    Create Your Account
+                </h2>
 
-                <div class="form-group">
-                    <label>Student ID</label>
-                    <input type="text" placeholder="Enter Student ID" id="studentid">
-                </div>
+                <p class="form-subtitle">
 
-                <div class="form-group">
-                    <label> Student email</label>
-                    <input type="email" placeholder="Enter email" id="email">
-                </div>
+                    Join StudentHub and stay connected
+                    with campus events, attendance,
+                    notices and more.
 
-                <div class="form-group">
-                    <label>Department</label>
+                </p>
 
-                    <select id="department" name="department" required>
-                        <option value="">Select Department</option>
-                        <option>Computer Engineering</option>
-                        <option>Information Technology</option>
-                        <option>Computer Science</option>
-                        <option>Electronics & Communication</option>
-                        <option>Mechanical Engineering</option>
-                    </select>
 
-                </div>
+                <form
+                    id="registerForm"
+                    novalidate
+                >
 
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" placeholder="Create password" id="registerpassword">
-                </div>
 
-                <div class="form-group">
-                    <label>Confirm Password</label>
-                    <input type="password" placeholder="Confirm password" id="confirmPassword">
-                </div>
+                    <!-- FULL NAME -->
 
-                <div class="button-group">
-                    <button class="btn btn-primary" type="submit">
-                        Register
-                    </button>
+                    <div class="form-group">
 
-                    <button class="btn btn-secondary" type="reset">
-                        Clear
-                    </button>
-                </div>
+                        <label for="fullname">
+                            Full Name
+                        </label>
 
-            </form>
+                        <input
+                            type="text"
+                            id="fullname"
+                            name="fullname"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
 
-            <p class="login-link">
-                Already have an account?
+                    </div>
 
-                <a href="login.html">
-                    Login Here
-                </a>
-            </p>
-        </div>
-    </section>
+
+                    <!-- STUDENT ID -->
+
+                    <div class="form-group">
+
+                        <label for="studentid">
+                            Student ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentid"
+                            name="studentid"
+                            placeholder="Example: 25CE111"
+                            maxlength="7"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Student Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="25ce111@studenthub.edu.in"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- MOBILE -->
+
+                    <div class="form-group">
+
+                        <label for="mobile">
+                            Mobile Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="mobile"
+                            name="mobile"
+                            placeholder="Enter 10-digit mobile number"
+                            maxlength="10"
+                            inputmode="numeric"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- DEPARTMENT -->
+
+                    <div class="form-group">
+
+                        <label for="department">
+                            Department
+                        </label>
+
+                        <select
+                            id="department"
+                            name="department"
+                            required
+                        >
+
+                            <option value="">
+                                Select Department
+                            </option>
+
+                            <option value="CE">
+                                Computer Engineering
+                            </option>
+
+                            <option value="IT">
+                                Information Technology
+                            </option>
+
+                            <option value="CS">
+                                Computer Science
+                            </option>
+
+                            <option value="EC">
+                                Electronics & Communication
+                            </option>
+
+                            <option value="ME">
+                                Mechanical Engineering
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- YEAR -->
+
+                    <div class="form-group">
+
+                        <label for="year">
+                            Year
+                        </label>
+
+                        <select
+                            id="year"
+                            name="year"
+                            required
+                        >
+
+                            <option value="">
+                                Select Year
+                            </option>
+
+                            <option value="1">
+                                First Year
+                            </option>
+
+                            <option value="2">
+                                Second Year
+                            </option>
+
+                            <option value="3">
+                                Third Year
+                            </option>
+
+                            <option value="4">
+                                Fourth Year
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- GENDER -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Gender
+                        </label>
+
+                        <div class="gender-options">
+
+                            <label class="radio-option">
+
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="male"
+                                >
+
+                                Male
+
+                            </label>
+
+
+                            <label class="radio-option">
+
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="female"
+                                >
+
+                                Female
+
+                            </label>
+
+
+                            <label class="radio-option">
+
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="other"
+                                >
+
+                                Other
+
+                            </label>
+
+                        </div>
+
+                        <small
+                            id="genderError"
+                            class="error-message"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="registerpassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerpassword"
+                            name="password"
+                            placeholder="Create strong password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+
+                        <!-- PASSWORD STRENGTH -->
+
+                        <div class="password-strength">
+
+                            <div
+                                id="strengthBar"
+                                class="strength-bar"
+                            ></div>
+
+                        </div>
+
+                        <small
+                            id="passwordStrength"
+                            class="strength-text"
+                        >
+                            Password Strength: Not entered
+                        </small>
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- TERMS -->
+
+                    <div class="terms-group">
+
+                        <label class="checkbox-option">
+
+                            <input
+                                type="checkbox"
+                                id="terms"
+                                name="terms"
+                            >
+
+                            <span>
+                                I agree to the
+                                Terms and Conditions
+                            </span>
+
+                        </label>
+
+                        <small
+                            id="termsError"
+                            class="error-message"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="button-group">
+
+                        <button
+                            class="btn btn-primary"
+                            type="submit"
+                        >
+                            Register
+                        </button>
+
+
+                        <button
+                            class="btn btn-secondary"
+                            type="reset"
+                        >
+                            Clear
+                        </button>
+
+                    </div>
+
+                </form>
+
+
+                <p class="login-link">
+
+                    Already have an account?
+
+                    <a href="login.html">
+                        Login Here
+                    </a>
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
     <footer>
-        © 2026 StudentHub | Designed for Students
+
+        <p>
+            © 2026 StudentHub | Designed for Students
+        </p>
+
     </footer>
-<script src="../js/script.js"></script>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../js/script.js"></script>
+
 </body>
+
 </html>
