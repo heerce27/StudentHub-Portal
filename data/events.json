@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "title": "TechFest 2026",
+        "category": "Technical",
+        "date": "2026-10-05",
+        "location": "CHARUSAT Campus",
+        "description": "Annual technical festival with coding and innovation competitions."
+    },
+    {
+        "id": 2,
+        "title": "Hackathon 2026",
+        "category": "Technical",
+        "date": "2026-10-12",
+        "location": "Innovation Lab",
+        "description": "24-hour hackathon for students to build innovative solutions."
+    },
+    {
+        "id": 3,
+        "title": "Sports Day",
+        "category": "Sports",
+        "date": "2026-10-18",
+        "location": "University Ground",
+        "description": "Annual sports event including cricket, football and athletics."
+    },
+    {
+        "id": 4,
+        "title": "Cultural Fest",
+        "category": "Cultural",
+        "date": "2026-10-22",
+        "location": "Main Auditorium",
+        "description": "A cultural celebration featuring music, dance and drama."
+    },
+    {
+        "id": 5,
+        "title": "Coding Competition",
+        "category": "Technical",
+        "date": "2026-10-25",
+        "location": "Computer Lab 1",
+        "description": "Programming competition covering algorithms and problem solving."
+    },
+    {
+        "id": 6,
+        "title": "Photography Contest",
+        "category": "Creative",
+        "date": "2026-10-28",
+        "location": "Student Activity Center",
+        "description": "Photography competition based on the theme Campus Life."
+    },
+    {
+        "id": 7,
+        "title": "Career Guidance Seminar",
+        "category": "Seminar",
+        "date": "2026-11-02",
+        "location": "Seminar Hall",
+        "description": "Industry experts discuss career opportunities and required skills."
+    },
+    {
+        "id": 8,
+        "title": "AI Workshop",
+        "category": "Workshop",
+        "date": "2026-11-06",
+        "location": "AI Lab",
+        "description": "Introduction to artificial intelligence and machine learning."
+    },
+    {
+        "id": 9,
+        "title": "Cyber Security Workshop",
+        "category": "Workshop",
+        "date": "2026-11-10",
+        "location": "Computer Lab 2",
+        "description": "Learn the basics of cyber security and safe computing."
+    },
+    {
+        "id": 10,
+        "title": "Alumni Meet",
+        "category": "Social",
+        "date": "2026-11-15",
+        "location": "University Auditorium",
+        "description": "Students interact with alumni and learn from their experiences."
+    },
+    {
+        "id": 11,
+        "title": "Startup Expo",
+        "category": "Business",
+        "date": "2026-11-20",
+        "location": "Innovation Center",
+        "description": "Student startups showcase their products and business ideas."
+    },
+    {
+        "id": 12,
+        "title": "Project Exhibition",
+        "category": "Technical",
+        "date": "2026-11-25",
+        "location": "Exhibition Hall",
+        "description": "Students present their academic and innovative projects."
+    },
+    {
+        "id": 13,
+        "title": "Blood Donation Camp",
+        "category": "Social",
+        "date": "2026-11-28",
+        "location": "Health Center",
+        "description": "University blood donation drive organized for the community."
+    },
+    {
+        "id": 14,
+        "title": "English Speaking Workshop",
+        "category": "Workshop",
+        "date": "2026-12-02",
+        "location": "Room 204",
+        "description": "Improve communication and public speaking skills."
+    },
+    {
+        "id": 15,
+        "title": "Farewell Ceremony",
+        "category": "Cultural",
+        "date": "2026-12-10",
+        "location": "Main Auditorium",
+        "description": "Farewell event organized for graduating students."
+    }
+]

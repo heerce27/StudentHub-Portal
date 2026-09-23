@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "question": "How can I check my attendance?",
+        "answer": "Open the Attendance section from the StudentHub dashboard.",
+        "category": "Attendance"
+    },
+    {
+        "id": 2,
+        "question": "How can I view my results?",
+        "answer": "Open the Results section to view your semester results and CGPA.",
+        "category": "Results"
+    },
+    {
+        "id": 3,
+        "question": "How can I check my fees?",
+        "answer": "Open the Fees section from the dashboard to view your fee details.",
+        "category": "Fees"
+    },
+    {
+        "id": 4,
+        "question": "Where can I find upcoming events?",
+        "answer": "All upcoming university events can be viewed in the Events section.",
+        "category": "Events"
+    },
+    {
+        "id": 5,
+        "question": "How can I update my profile?",
+        "answer": "Open the Profile page and update the available profile information.",
+        "category": "Profile"
+    },
+    {
+        "id": 6,
+        "question": "How can I download my certificate?",
+        "answer": "Open the Certificates section and select the required certificate.",
+        "category": "Certificates"
+    },
+    {
+        "id": 7,
+        "question": "How do I register for an event?",
+        "answer": "Open the event details and follow the registration instructions provided.",
+        "category": "Events"
+    },
+    {
+        "id": 8,
+        "question": "Can I search for events?",
+        "answer": "Yes. Use the search box on the Events page to search events by title or category.",
+        "category": "Events"
+    },
+    {
+        "id": 9,
+        "question": "How can I submit feedback?",
+        "answer": "Open the Feedback section and submit your feedback using the provided form.",
+        "category": "Feedback"
+    },
+    {
+        "id": 10,
+        "question": "What is StudentHub?",
+        "answer": "StudentHub is a student portal that provides access to academic and campus information.",
+        "category": "General"
+    },
+    {
+        "id": 11,
+        "question": "Can I check my attendance percentage?",
+        "answer": "Yes. The Attendance page displays your overall and subject-wise attendance.",
+        "category": "Attendance"
+    },
+    {
+        "id": 12,
+        "question": "Where can I see my semester SGPA?",
+        "answer": "Your SGPA is available on the Results page.",
+        "category": "Results"
+    },
+    {
+        "id": 13,
+        "question": "How can I contact the university?",
+        "answer": "Use the contact information provided by the university or your department.",
+        "category": "General"
+    },
+    {
+        "id": 14,
+        "question": "How can I access the dashboard?",
+        "answer": "Login using your student credentials to access the StudentHub dashboard.",
+        "category": "Login"
+    },
+    {
+        "id": 15,
+        "question": "What should I do if I forget my password?",
+        "answer": "Use the password recovery option or contact the appropriate university support team.",
+        "category": "Login"
+    }
+]
