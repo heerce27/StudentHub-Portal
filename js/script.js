@@ -820,4 +820,362 @@ document.addEventListener("DOMContentLoaded", function () {
             5000
         );
     }
+
+    /* =========================================================
+   PRACTICAL 6 - FETCH API, SEARCH, FILTER, SORT & PAGINATION
+   ========================================================= */
+
+const eventsContainer =
+    document.getElementById("eventsContainer");
+
+const eventSearch =
+    document.getElementById("eventSearch");
+
+const eventCategory =
+    document.getElementById("eventCategory");
+
+const eventSort =
+    document.getElementById("eventSort");
+
+const eventLoading =
+    document.getElementById("eventLoading");
+
+const eventError =
+    document.getElementById("eventError");
+
+const prevPage =
+    document.getElementById("prevPage");
+
+const nextPage =
+    document.getElementById("nextPage");
+
+const pageInfo =
+    document.getElementById("pageInfo");
+
+if (eventsContainer) {
+    let events = [];
+    let filteredEvents = [];
+    let currentPage = 1;
+    const eventsPerPage = 6;
+    /* ---------- FETCH JSON ---------- */
+    async function loadEvents() {
+        try {
+            eventLoading.textContent = "Loading events...";
+            eventError.textContent = "";
+            const response = await fetch("../data/events.json");
+
+            if (!response.ok) {
+                throw new Error(
+                    "Unable to load events.json"
+                );
+
+            }
+            events = await response.json();
+            filteredEvents = [...events];
+
+
+            /* Create category options */
+
+            const categories =
+                [...new Set(
+                    events.map(event => event.category)
+                )];
+
+
+            categories.forEach(category => {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = category;
+
+                option.textContent = category;
+
+                eventCategory.appendChild(option);
+
+            });
+
+
+            eventLoading.textContent = "";
+
+            displayEvents();
+
+        }
+        catch (error) {
+
+            eventLoading.textContent = "";
+
+            eventError.textContent =
+                "Error loading events. Please try again.";
+
+            console.error(error);
+
+        }
+
+    }
+
+
+    /* ---------- DISPLAY EVENTS ---------- */
+
+    function displayEvents() {
+
+        eventsContainer.innerHTML = "";
+
+
+        const start =
+            (currentPage - 1) * eventsPerPage;
+
+        const end =
+            start + eventsPerPage;
+
+
+        const pageEvents =
+            filteredEvents.slice(start, end);
+
+
+        if (pageEvents.length === 0) {
+
+            eventsContainer.innerHTML =
+                "<p>No events found.</p>";
+
+            updatePagination();
+
+            return;
+
+        }
+
+
+        pageEvents.map(event => {
+
+            const card =
+                document.createElement("div");
+
+            card.className = "card";
+
+
+            card.innerHTML = `
+
+                <h3>${event.title}</h3>
+
+                <p>
+                    <strong>Category:</strong>
+                    ${event.category}
+                </p>
+
+                <p>
+                    <strong>Date:</strong>
+                    ${event.date}
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    ${event.location}
+                </p>
+
+                <p>
+                    ${event.description}
+                </p>
+
+                <span class="badge badge-blue">
+                    ${event.category}
+                </span>
+
+            `;
+
+
+            eventsContainer.appendChild(card);
+
+        });
+
+
+        updatePagination();
+
+    }
+
+
+    /* ---------- SEARCH + FILTER ---------- */
+
+    function applyFilters() {
+
+        const searchText =
+            eventSearch.value
+                .toLowerCase()
+                .trim();
+
+
+        const category =
+            eventCategory.value;
+
+
+        filteredEvents =
+            events.filter(event => {
+
+                const matchesSearch =
+                    event.title
+                        .toLowerCase()
+                        .includes(searchText) ||
+
+                    event.description
+                        .toLowerCase()
+                        .includes(searchText);
+
+
+                const matchesCategory =
+                    category === "all" ||
+                    event.category === category;
+
+
+                return (
+                    matchesSearch &&
+                    matchesCategory
+                );
+
+            });
+
+
+        currentPage = 1;
+
+        applySorting();
+
+    }
+
+
+    /* ---------- SORTING ---------- */
+
+    function applySorting() {
+
+        const sortValue =
+            eventSort.value;
+
+
+        if (sortValue === "title-asc") {
+
+            filteredEvents.sort(
+                (a, b) =>
+                    a.title.localeCompare(b.title)
+            );
+
+        }
+
+
+        else if (sortValue === "title-desc") {
+
+            filteredEvents.sort(
+                (a, b) =>
+                    b.title.localeCompare(a.title)
+            );
+
+        }
+
+
+        else if (sortValue === "date-asc") {
+
+            filteredEvents.sort(
+                (a, b) =>
+                    new Date(a.date) -
+                    new Date(b.date)
+            );
+
+        }
+
+
+        else if (sortValue === "date-desc") {
+
+            filteredEvents.sort(
+                (a, b) =>
+                    new Date(b.date) -
+                    new Date(a.date)
+            );
+
+        }
+
+
+        displayEvents();
+
+    }
+
+
+    /* ---------- PAGINATION ---------- */
+
+    function updatePagination() {
+
+        const totalPages =
+            Math.ceil(
+                filteredEvents.length /
+                eventsPerPage
+            );
+
+
+        pageInfo.textContent =
+            `Page ${currentPage} of ${Math.max(
+                totalPages,
+                1
+            )}`;
+
+
+        prevPage.disabled =
+            currentPage === 1;
+
+
+        nextPage.disabled =
+            currentPage >= totalPages;
+
+    }
+
+
+    /* ---------- EVENT LISTENERS ---------- */
+
+    eventSearch.addEventListener(
+        "input",
+        applyFilters
+    );
+
+
+    eventCategory.addEventListener(
+        "change",
+        applyFilters
+    );
+
+
+    eventSort.addEventListener(
+        "change",
+        applySorting
+    );
+
+
+    prevPage.addEventListener(
+        "click",
+        function () {
+
+            if (currentPage > 1) {
+
+                currentPage--;
+
+                displayEvents();
+
+            }
+
+        }
+    );
+
+
+    nextPage.addEventListener(
+        "click",
+        function () {
+            const totalPages =
+                Math.ceil(
+                    filteredEvents.length /
+                    eventsPerPage
+                );
+
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayEvents();
+            }
+        }
+    );
+    /* Start */
+    loadEvents();
+
+}
 });

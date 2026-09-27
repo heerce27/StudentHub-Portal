@@ -110,63 +110,76 @@
 
     <!-- Event Cards -->
 
-    <div class="grid attendance-grid">
+    <!-- ================= PRACTICAL 6 EVENTS ================= -->
 
-        <div class="card">
+<div class="card">
 
-            <img src="../images/aiworkshop.jpg" width="100%">
+    <h2>Upcoming Events</h2>
 
-            <h2>AI Workshop</h2>
+    <p id="eventLoading">
+        Loading events...
+    </p>
 
-            <p><strong>Date:</strong> 25 July 2026</p>
+    <p id="eventError" class="error-message"></p>
 
-            <p><strong>Venue:</strong> Seminar Hall</p>
+    <!-- Search and Filter -->
 
-            <p><strong>Faculty:</strong> Prof. Mehta</p>
+    <div class="event-controls">
 
-            <p><strong>Contact:</strong> 9876543210</p>
+        <input
+            type="text"
+            id="eventSearch"
+            placeholder="Search events..."
+        >
 
-            <span class="badge badge-green">Upcoming</span>
+        <select id="eventCategory">
+            <option value="all">All Categories</option>
+        </select>
 
-        </div>
-
-        <div class="card">
-
-            <img src="../images/sportsfest.jpg" width="100%">
-
-            <h2>Sports Fest</h2>
-
-            <p><strong>Date:</strong> 15–18 July</p>
-
-            <p><strong>Venue:</strong> Sports Ground</p>
-
-            <p><strong>Contact:</strong> Sports Committee</p>
-
-            <p><strong>Phone:</strong> 9123456780</p>
-
-            <span class="badge badge-blue">Ongoing</span>
-
-        </div>
-
-        <div class="card">
-
-            <img src="../images/culturalfest.jpg" width="100%">
-
-            <h2>Cultural Fest</h2>
-
-            <p><strong>Date:</strong> 10 July</p>
-
-            <p><strong>Venue:</strong> Auditorium</p>
-
-            <p><strong>Contact:</strong> Cultural Committee</p>
-
-            <p><strong>Phone:</strong> 9988776655</p>
-
-            <span class="badge badge-pink">Completed</span>
-
-        </div>
+        <select id="eventSort">
+            <option value="default">Sort By</option>
+            <option value="title-asc">Title A-Z</option>
+            <option value="title-desc">Title Z-A</option>
+            <option value="date-asc">Date: Earliest</option>
+            <option value="date-desc">Date: Latest</option>
+        </select>
 
     </div>
+
+    <!-- Dynamic Events -->
+
+    <div
+        id="eventsContainer"
+        class="grid attendance-grid"
+    ></div>
+
+    <!-- Pagination -->
+
+    <div class="pagination">
+
+        <button
+            id="prevPage"
+            class="btn"
+            type="button"
+        >
+            Previous
+        </button>
+
+        <span id="pageInfo">
+            Page 1
+        </span>
+
+        <button
+            id="nextPage"
+            class="btn"
+            type="button"
+        >
+            Next
+        </button>
+
+    </div>
+
+</div>
 
     <br>
 

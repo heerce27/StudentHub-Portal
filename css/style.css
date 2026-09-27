@@ -1655,3 +1655,37 @@ body.dark .sh-notification {
         gap: 10px;
     }
 }
+
+/* =========================================================
+   PRACTICAL 6 - EVENT CONTROLS
+   ========================================================= */
+
+.event-controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.event-controls input,
+.event-controls select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 180px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

@@ -1,122 +1,122 @@
 [
     {
         "id": 1,
-        "title": "TechFest 2026",
-        "category": "Technical",
-        "date": "2026-10-05",
-        "location": "CHARUSAT Campus",
-        "description": "Annual technical festival with coding and innovation competitions."
+        "name": "Aarav Patel",
+        "studentId": "25CE101",
+        "department": "Computer Engineering",
+        "year": 3,
+        "email": "25ce101@studenthub.edu.in"
     },
     {
         "id": 2,
-        "title": "Hackathon 2026",
-        "category": "Technical",
-        "date": "2026-10-12",
-        "location": "Innovation Lab",
-        "description": "24-hour hackathon for students to build innovative solutions."
+        "name": "Riya Shah",
+        "studentId": "25CE102",
+        "department": "Computer Engineering",
+        "year": 3,
+        "email": "25ce102@studenthub.edu.in"
     },
     {
         "id": 3,
-        "title": "Sports Day",
-        "category": "Sports",
-        "date": "2026-10-18",
-        "location": "University Ground",
-        "description": "Annual sports event including cricket, football and athletics."
+        "name": "Dev Mehta",
+        "studentId": "25IT103",
+        "department": "Information Technology",
+        "year": 3,
+        "email": "25it103@studenthub.edu.in"
     },
     {
         "id": 4,
-        "title": "Cultural Fest",
-        "category": "Cultural",
-        "date": "2026-10-22",
-        "location": "Main Auditorium",
-        "description": "A cultural celebration featuring music, dance and drama."
+        "name": "Mira Patel",
+        "studentId": "25CS104",
+        "department": "Computer Science",
+        "year": 3,
+        "email": "25cs104@studenthub.edu.in"
     },
     {
         "id": 5,
-        "title": "Coding Competition",
-        "category": "Technical",
-        "date": "2026-10-25",
-        "location": "Computer Lab 1",
-        "description": "Programming competition covering algorithms and problem solving."
+        "name": "Karan Shah",
+        "studentId": "25EC105",
+        "department": "Electronics & Communication",
+        "year": 3,
+        "email": "25ec105@studenthub.edu.in"
     },
     {
         "id": 6,
-        "title": "Photography Contest",
-        "category": "Creative",
-        "date": "2026-10-28",
-        "location": "Student Activity Center",
-        "description": "Photography competition based on the theme Campus Life."
+        "name": "Neha Joshi",
+        "studentId": "25ME106",
+        "department": "Mechanical Engineering",
+        "year": 3,
+        "email": "25me106@studenthub.edu.in"
     },
     {
         "id": 7,
-        "title": "Career Guidance Seminar",
-        "category": "Seminar",
-        "date": "2026-11-02",
-        "location": "Seminar Hall",
-        "description": "Industry experts discuss career opportunities and required skills."
+        "name": "Yash Patel",
+        "studentId": "25CE107",
+        "department": "Computer Engineering",
+        "year": 3,
+        "email": "25ce107@studenthub.edu.in"
     },
     {
         "id": 8,
-        "title": "AI Workshop",
-        "category": "Workshop",
-        "date": "2026-11-06",
-        "location": "AI Lab",
-        "description": "Introduction to artificial intelligence and machine learning."
+        "name": "Diya Shah",
+        "studentId": "25IT108",
+        "department": "Information Technology",
+        "year": 3,
+        "email": "25it108@studenthub.edu.in"
     },
     {
         "id": 9,
-        "title": "Cyber Security Workshop",
-        "category": "Workshop",
-        "date": "2026-11-10",
-        "location": "Computer Lab 2",
-        "description": "Learn the basics of cyber security and safe computing."
+        "name": "Harsh Mehta",
+        "studentId": "25CS109",
+        "department": "Computer Science",
+        "year": 3,
+        "email": "25cs109@studenthub.edu.in"
     },
     {
         "id": 10,
-        "title": "Alumni Meet",
-        "category": "Social",
-        "date": "2026-11-15",
-        "location": "University Auditorium",
-        "description": "Students interact with alumni and learn from their experiences."
+        "name": "Anaya Patel",
+        "studentId": "25CE110",
+        "department": "Computer Engineering",
+        "year": 3,
+        "email": "25ce110@studenthub.edu.in"
     },
     {
         "id": 11,
-        "title": "Startup Expo",
-        "category": "Business",
-        "date": "2026-11-20",
-        "location": "Innovation Center",
-        "description": "Student startups showcase their products and business ideas."
+        "name": "Krish Shah",
+        "studentId": "25IT111",
+        "department": "Information Technology",
+        "year": 3,
+        "email": "25it111@studenthub.edu.in"
     },
     {
         "id": 12,
-        "title": "Project Exhibition",
-        "category": "Technical",
-        "date": "2026-11-25",
-        "location": "Exhibition Hall",
-        "description": "Students present their academic and innovative projects."
+        "name": "Ishita Mehta",
+        "studentId": "25CS112",
+        "department": "Computer Science",
+        "year": 3,
+        "email": "25cs112@studenthub.edu.in"
     },
     {
         "id": 13,
-        "title": "Blood Donation Camp",
-        "category": "Social",
-        "date": "2026-11-28",
-        "location": "Health Center",
-        "description": "University blood donation drive organized for the community."
+        "name": "Dhruv Patel",
+        "studentId": "25CE113",
+        "department": "Computer Engineering",
+        "year": 3,
+        "email": "25ce113@studenthub.edu.in"
     },
     {
         "id": 14,
-        "title": "English Speaking Workshop",
-        "category": "Workshop",
-        "date": "2026-12-02",
-        "location": "Room 204",
-        "description": "Improve communication and public speaking skills."
+        "name": "Tanya Shah",
+        "studentId": "25EC114",
+        "department": "Electronics & Communication",
+        "year": 3,
+        "email": "25ec114@studenthub.edu.in"
     },
     {
         "id": 15,
-        "title": "Farewell Ceremony",
-        "category": "Cultural",
-        "date": "2026-12-10",
-        "location": "Main Auditorium",
-        "description": "Farewell event organized for graduating students."
+        "name": "Om Joshi",
+        "studentId": "25ME115",
+        "department": "Mechanical Engineering",
+        "year": 3,
+        "email": "25me115@studenthub.edu.in"
     }
 ]
