@@ -465,42 +465,42 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         /* ---------- Submit ---------- */
         registerForm.addEventListener(
-            "submit",
-            function (event) {
-                event.preventDefault();
-                const valid =
-                    validateName() &&
-                    validateStudentId() &&
-                    validateEmail() &&
-                    validateMobile() &&
-                    validateDepartment() &&
-                    validateYear() &&
-                    validateGender() &&
-                    validatePassword() &&
-                    validateConfirmPassword() &&
-                    validateTerms();
-                if (!valid) {
-                    const firstError =
-                        registerForm.querySelector(
-                            ".input-error"
-                        );
-                    if (firstError) {
-                        firstError.focus();
-                    }
-                    return;
-                }
-                alert(
-                    "Registration successful! Welcome to StudentHub."
+    "submit",
+    function (event) {
+
+        const valid =
+            validateName() &&
+            validateStudentId() &&
+            validateEmail() &&
+            validateMobile() &&
+            validateDepartment() &&
+            validateYear() &&
+            validateGender() &&
+            validatePassword() &&
+            validateConfirmPassword() &&
+            validateTerms();
+
+        if (!valid) {
+
+            event.preventDefault();
+
+            const firstError =
+                registerForm.querySelector(
+                    ".input-error"
                 );
-                registerForm.reset();
-                checkPasswordStrength();
-                document
-                    .querySelectorAll(".error-message")
-                    .forEach(function (error) {
-                        error.textContent = "";
-                    });
+
+            if (firstError) {
+                firstError.focus();
             }
-        );
+
+            return;
+        }
+/*         * The browser will now submit
+         * the form to PHP using POST.
+         */
+
+    }
+);
         /* ---------- Reset ---------- */
         registerForm.addEventListener(
             "reset",

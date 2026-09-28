@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
+    header("Location: login.html");
+    exit;
+}
+
+$fullname = $_SESSION["fullname"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,7 +93,7 @@
 <div id="overlay" class="overlay"></div>
 <main class="main-content">
     <div class="container">
-        <h1>Hi User!</h1>
+        <h1>Hi <?php echo htmlspecialchars($fullname); ?>!</h1>
         <p>Your one-stop portal to manage academics, events, attendance, results, certificates, fees, and much more.</p>
     </div>
     
