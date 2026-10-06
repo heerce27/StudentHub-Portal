@@ -1075,7 +1075,6 @@ if (eventsContainer) {
                     new Date(a.date) -
                     new Date(b.date)
             );
-
         }
 
 
@@ -1086,10 +1085,7 @@ if (eventsContainer) {
                     new Date(b.date) -
                     new Date(a.date)
             );
-
         }
-
-
         displayEvents();
 
     }
@@ -1112,10 +1108,8 @@ if (eventsContainer) {
                 1
             )}`;
 
-
         prevPage.disabled =
             currentPage === 1;
-
 
         nextPage.disabled =
             currentPage >= totalPages;
@@ -1129,7 +1123,6 @@ if (eventsContainer) {
         "input",
         applyFilters
     );
-
 
     eventCategory.addEventListener(
         "change",

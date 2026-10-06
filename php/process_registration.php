@@ -1,12 +1,9 @@
 <?php
 
 /* =========================================================
-   PRACTICAL 7
-   PHP FORM PROCESSING WITH SERVER-SIDE VALIDATION
+   PRACTICAL 8
+   PHP FORM PROCESSING WITH MYSQL + PDO
    ========================================================= */
-
-
-/* ---------- Only allow POST ---------- */
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
@@ -15,47 +12,41 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 }
 
 
-/* ---------- Helper function ---------- */
+/* ---------- Database connection ---------- */
 
-function cleanInput($value)
-{
-    return htmlspecialchars(
-        trim($value),
-        ENT_QUOTES,
-        'UTF-8'
-    );
-}
+require_once "db.php";
 
 
 /* ---------- Get form values ---------- */
 
 $fullname =
-    cleanInput($_POST["fullname"] ?? "");
+    trim($_POST["fullname"] ?? "");
 
 $studentid =
     strtoupper(
-        cleanInput($_POST["studentid"] ?? "")
+        trim($_POST["studentid"] ?? "")
     );
 
 $email =
     strtolower(
-        cleanInput($_POST["email"] ?? "")
+        trim($_POST["email"] ?? "")
     );
 
 $mobile =
-    cleanInput($_POST["mobile"] ?? "");
+    trim($_POST["mobile"] ?? "");
 
 $department =
-    cleanInput($_POST["department"] ?? "");
+    trim($_POST["department"] ?? "");
 
 $year =
-    cleanInput($_POST["year"] ?? "");
+    trim($_POST["year"] ?? "");
 
 $gender =
-    cleanInput($_POST["gender"] ?? "");
+    trim($_POST["gender"] ?? "");
 
 $password =
     $_POST["password"] ?? "";
+
 $confirmPassword =
     $_POST["confirmPassword"] ?? "";
 
@@ -75,61 +66,44 @@ if ($fullname === "") {
     $errors[] =
         "Full name is required.";
 
-}
-
-elseif (
+} elseif (
     !preg_match(
         "/^[A-Za-z ]{2,50}$/",
         $fullname
     )
 ) {
-
-    $errors[] =
-        "Full name contains invalid characters.";
-
+    $errors[] =  "Full name contains invalid characters.";
 }
 
 
 /* Student ID */
-
 if ($studentid === "") {
+    $errors[] = "Student ID is required.";
 
-    $errors[] =
-        "Student ID is required.";
-
-}
-
-elseif (
+} elseif (
     !preg_match(
         "/^(23|24|25|26)(CE|IT|CS|EC|ME)\d{3}$/",
         $studentid
     )
 ) {
 
-    $errors[] =
-        "Invalid Student ID format.";
+    $errors[] = "Invalid Student ID format.";
 
 }
-
 
 /* Email */
 
 if ($email === "") {
+    $errors[] = "Email is required.";
 
-    $errors[] =
-        "Email is required.";
-
-}
-
-elseif (
+} elseif (
     !filter_var(
         $email,
         FILTER_VALIDATE_EMAIL
     )
 ) {
 
-    $errors[] =
-        "Invalid email address.";
+    $errors[] =  "Invalid email address.";
 
 }
 
@@ -142,10 +116,7 @@ if (
         $mobile
     )
 ) {
-
-    $errors[] =
-        "Enter a valid 10-digit mobile number.";
-
+    $errors[] = "Enter a valid 10-digit mobile number.";
 }
 
 
@@ -167,8 +138,7 @@ if (
     )
 ) {
 
-    $errors[] =
-        "Invalid department.";
+    $errors[] = "Invalid department.";
 
 }
 
@@ -190,14 +160,11 @@ if (
     )
 ) {
 
-    $errors[] =
-        "Invalid year.";
+    $errors[] =  "Invalid year.";
 
 }
 
-
 /* Gender */
-
 $validGenders = [
     "male",
     "female",
@@ -211,279 +178,207 @@ if (
         true
     )
 ) {
-
-    $errors[] =
-        "Please select a valid gender.";
+    $errors[] = "Please select a valid gender.";
 
 }
-
 
 /* Password */
 
 if (strlen($password) < 8) {
-
-    $errors[] =
-        "Password must contain at least 8 characters.";
-
+    $errors[] =  "Password must contain at least 8 characters.";
 }
-
 
 /* Confirm password */
 
 if ($password !== $confirmPassword) {
-
-    $errors[] =
-        "Passwords do not match.";
-
+    $errors[] = "Passwords do not match.";
 }
-
 
 /* Terms */
 
 if (!$terms) {
-
-    $errors[] =
-        "You must accept the terms and conditions.";
-
+    $errors[] =  "You must accept the terms and conditions.";
 }
-
 
 /* ---------- Display errors ---------- */
 
 if (!empty($errors)) {
-
     echo "<!DOCTYPE html>";
-
     echo "<html>";
-
     echo "<head>";
-
     echo "<title>Registration Error</title>";
-
     echo "<link rel='stylesheet' href='../css/style.css'>";
-
     echo "</head>";
-
     echo "<body>";
-
     echo "<div class='card'>";
-
     echo "<h2>Registration Failed</h2>";
-
     echo "<ul>";
-
     foreach ($errors as $error) {
-
         echo "<li>"
             . htmlspecialchars($error)
             . "</li>";
 
     }
-
     echo "</ul>";
-
     echo "<a href='../html/register.html'>";
-
     echo "Go Back to Registration";
-
     echo "</a>";
-
     echo "</div>";
-
     echo "</body>";
-
     echo "</html>";
-
     exit;
-
 }
-
 
 /* =========================================================
-   STORE DATA IN JSON
+   CHECK FOR DUPLICATE STUDENT ID / EMAIL
+   USING PREPARED STATEMENT
    ========================================================= */
 
+$checkQuery = "
+    SELECT student_id
+    FROM students
+    WHERE studentid = :studentid
+       OR email = :email
+    LIMIT 1
+";
 
-/* Password should never be stored as plain text */
+$checkStmt = $pdo->prepare($checkQuery);
+
+$checkStmt->execute([
+    ":studentid" => $studentid,
+    ":email" => $email
+]);
+
+$existingStudent = $checkStmt->fetch();
+
+if ($existingStudent) {
+    echo "<!DOCTYPE html>";
+    echo "<html>";
+    echo "<head>";
+    echo "<title>Registration Failed</title>";
+    echo "<link rel='stylesheet' href='../css/style.css'>";
+    echo "</head>";
+    echo "<body>";
+    echo "<div class='card'>";
+    echo "<h2>Registration Failed</h2>";
+    echo "<p>";
+    echo "Student ID or email is already registered.";
+    echo "</p>";
+    echo "<a href='../html/register.html'>";
+    echo "Go Back to Registration";
+    echo "</a>";
+    echo "</div>";
+    echo "</body>";
+    echo "</html>";
+    exit;
+}
+
+/* =========================================================
+   HASH PASSWORD
+   ========================================================= */
 
 $passwordHash =
-    password_hash(
-        $password,
-        PASSWORD_DEFAULT
-    );
+    password_hash( $password, PASSWORD_DEFAULT);
+
+/* =========================================================
+   INSERT STUDENT USING PREPARED STATEMENT
+   ========================================================= */
+
+$insertQuery = "
+    INSERT INTO students
+    (
+        fullname,
+        studentid,
+        email,
+        mobile,
+        department,
+        year,
+        gender,
+        password
+    )
+    VALUES
+    (
+        :fullname,
+        :studentid,
+        :email,
+        :mobile,
+        :department,
+        :year,
+        :gender,
+        :password
+    )
+";
+
+$insertStmt =
+    $pdo->prepare($insertQuery);
 
 
-$newRegistration = [
+try {
+    $insertStmt->execute([
+        ":fullname" =>
+            $fullname,
+        ":studentid" =>
+            $studentid,
+        ":email" =>
+            $email,
+        ":mobile" =>
+            $mobile,
+        ":department" =>
+            $department,
+        ":year" =>
+            $year,
+        ":gender" =>
+            $gender,
+        ":password" =>
+            $passwordHash
+    ]);
 
-    "id" =>
-        time(),
-
-    "fullname" =>
-        $fullname,
-
-    "studentid" =>
-        $studentid,
-
-    "email" =>
-        $email,
-
-    "mobile" =>
-        $mobile,
-
-    "department" =>
-        $department,
-
-    "year" =>
-        $year,
-
-    "gender" =>
-        $gender,
-
-    "password" =>
-        $passwordHash,
-
-    "registered_at" =>
-        date("Y-m-d H:i:s")
-
-];
-
-
-/* JSON file */
-
-$file =
-    "../data/registrations.json";
-
-
-/* Create file if it does not exist */
-
-if (!file_exists($file)) {
-
-    file_put_contents(
-        $file,
-        "[]"
-    );
-
-}
-
-
-/* Read existing data */
-
-$json = file_get_contents($file);
-
-$registrations = json_decode($json, true);
-/* Check JSON */
-if (!is_array($registrations)) {
-    $registrations = [];
-
-}
-
-/* ---------- Duplicate checking ---------- */
-foreach ($registrations as $registration) {
-
-    if (
-        isset($registration["studentid"]) &&
-        $registration["studentid"] === $studentid
-    ) {
-        exit( "Student ID is already registered.");
-    }
-
-    if ( isset($registration["email"]) && $registration["email"] === $email
-    ) {
-
-        exit(
-            "Email is already registered."
-        );
-
-    }
-
-}
-
-
-/* Add new record */
-
-$registrations[] =
-    $newRegistration;
-
-
-/* Convert to JSON */
-
-$newJson =
-    json_encode(
-        $registrations,
-        JSON_PRETTY_PRINT
-    );
-
-
-/* Safely write file */
-
-if (
-    file_put_contents(
-        $file,
-        $newJson,
-        LOCK_EX
-    ) === false
-) {
-
+} catch (PDOException $e) {
     exit(
-        "Unable to save registration data."
+        "Unable to register student."
     );
-
 }
 
-
-/* ---------- Success ---------- */
-
+/* =========================================================
+   SUCCESS MESSAGE
+   ========================================================= */
 ?>
 
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
-
     <title>Registration Successful</title>
-
     <link
         rel="stylesheet"
         href="../css/style.css"
     >
-
 </head>
-
 <body>
-
     <div class="card">
-
         <h2>
             Registration Successful!
         </h2>
-
         <p>
             Welcome to StudentHub,
-            <?php echo $fullname; ?>.
+            <?php
+            echo htmlspecialchars($fullname);
+            ?>.
         </p>
-
         <p>
             Your registration has been
             successfully stored.
         </p>
-
         <a
             href="../html/login.html"
             class="btn btn-primary"
         >
             Go to Login
         </a>
-
     </div>
-
 </body>
-
 </html>
