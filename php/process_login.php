@@ -1,237 +1,88 @@
+
 <?php
+require_once 'session.php';
+require_once 'db.php';
 
-session_start();
-
-
-/* ---------- Only allow POST ---------- */
-
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-
-    exit("Invalid request method.");
-
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    exit('Invalid request method.');
 }
 
-
-/* ---------- Database connection ---------- */
-
-require_once "db.php";
-
-
-/* ---------- Get login values ---------- */
-
-$studentid =
-    strtoupper(
-        trim($_POST["studentid"] ?? "")
-    );
-
-$password =
-    $_POST["password"] ?? "";
-
-
-/* ---------- Basic validation ---------- */
-
-$errors = [];
-
-
-if ($studentid === "") {
-
-    $errors[] = "Student ID is required.";
-}
-
-if ($password === "") {
-
-    $errors[] =
-        "Password is required.";
-
-}
-
-
-/* ---------- Show validation errors ---------- */
-
-if (!empty($errors)) {
-
-    echo "<!DOCTYPE html>";
-
-    echo "<html>";
-
-    echo "<head>";
-
-    echo "<title>Login Failed</title>";
-
-    echo "<link rel='stylesheet' href='../css/style.css'>";
-
-    echo "</head>";
-
-    echo "<body>";
-
-    echo "<div class='card'>";
-
-    echo "<h2>Login Failed</h2>";
-
-    echo "<ul>";
-
-    foreach ($errors as $error) {
-
-        echo "<li>" . htmlspecialchars($error) . "</li>";
-    }
-    echo "</ul>";
-    echo "<a href='../html/login.html'>";
-    echo "Go Back to Login";
-    echo "</a>";
-    echo "</div>";
-    echo "</body>";
-    echo "</html>";
-    exit;
-}
-
-/* =========================================================
-   FIND STUDENT USING PREPARED STATEMENT
-   ========================================================= */
-$query = "
-    SELECT
-        student_id,
-        fullname,
-        studentid,
-        email,
-        department,
-        year,
-        password
-    FROM students
-    WHERE studentid = :studentid
-    LIMIT 1
-";
-
-
-$stmt =
-    $pdo->prepare($query);
-
-
-$stmt->execute([
-    ":studentid" => $studentid
-]);
-
-
-$student =
-    $stmt->fetch();
-
-
-/* ---------- Student not found ---------- */
-
-if (!$student) {
-
-    echo "<!DOCTYPE html>";
-
-    echo "<html>";
-
-    echo "<head>";
-
-    echo "<title>Login Failed</title>";
-
-    echo "<link rel='stylesheet' href='../css/style.css'>";
-
-    echo "</head>";
-
-    echo "<body>";
-
-    echo "<div class='card'>";
-
-    echo "<h2>Login Failed</h2>";
-
-    echo "<p>";
-    echo "Invalid Student ID or password.";
-    echo "</p>";
-
-    echo "<a href='../html/login.html'>";
-    echo "Go Back to Login";
-    echo "</a>";
-
-    echo "</div>";
-
-    echo "</body>";
-
-    echo "</html>";
-
-    exit;
-
-}
-
-
-/* =========================================================
-   VERIFY PASSWORD
-   ========================================================= */
+$type = $_POST['account_type'] ?? '';
+$loginId = trim($_POST['login_id'] ?? '');
+$password = $_POST['password'] ?? '';
 
 if (
-    !password_verify(
-        $password,
-        $student["password"]
-    )
+    !in_array($type, ['student', 'admin'], true) ||
+    $loginId === '' ||
+    $password === ''
 ) {
-
-    echo "<!DOCTYPE html>";
-
-    echo "<html>";
-
-    echo "<head>";
-
-    echo "<title>Login Failed</title>";
-
-    echo "<link rel='stylesheet' href='../css/style.css'>";
-
-    echo "</head>";
-
-    echo "<body>";
-
-    echo "<div class='card'>";
-
-    echo "<h2>Login Failed</h2>";
-
-    echo "<p>";
-    echo "Invalid Student ID or password.";
-    echo "</p>";
-
-    echo "<a href='../html/login.html'>";
-    echo "Go Back to Login";
-    echo "</a>";
-
-    echo "</div>";
-
-    echo "</body>";
-
-    echo "</html>";
-
-    exit;
-
+    exit('Please enter valid login details.');
 }
 
+if ($type === 'student') {
+    $stmt = $pdo->prepare(
+        "SELECT student_id, fullname, studentid, email,
+                department, year, password
+         FROM students
+         WHERE studentid = :login_id
+         LIMIT 1"
+    );
+} else {
+    $stmt = $pdo->prepare(
+        "SELECT admin_id, username, email, password
+         FROM admins
+         WHERE username = :login_id
+         LIMIT 1"
+    );
+}
 
-/* =========================================================
-   LOGIN SUCCESS
-   ========================================================= */
+$stmt->execute(['login_id' => $loginId]);
+$user = $stmt->fetch();
 
-$_SESSION["logged_in"] = true;
+// Use the same error for unknown accounts and wrong passwords.
+if (!$user || !password_verify($password, $user['password'])) {
+    http_response_code(401);
+    exit(
+        'Invalid username/Student ID or password. ' .
+        '<a href="../html/login.html">Try again</a>'
+    );
+}
 
-$_SESSION["studentid"] =
-    $student["studentid"];
+// Create a fresh session ID after successful authentication.
+session_regenerate_id(true);
 
-$_SESSION["fullname"] =
-    $student["fullname"];
+$_SESSION['logged_in'] = true;
+$_SESSION['last_activity'] = time();
 
-$_SESSION["email"] =
-    $student["email"];
+if ($type === 'student') {
+    $_SESSION['role'] = 'student';
+    $_SESSION['student_id'] = (int) $user['student_id'];
+    $_SESSION['studentid'] = $user['studentid'];
+    $_SESSION['fullname'] = $user['fullname'];
+    $_SESSION['email'] = $user['email'];
+    $_SESSION['department'] = $user['department'];
+    $_SESSION['year'] = $user['year'];
 
-$_SESSION["department"] =
-    $student["department"];
+    header('Location: ../html/dashboard.php');
+    exit;
+}
 
-$_SESSION["year"] =
-    $student["year"];
+// Admin authentication.
+$_SESSION['role'] = 'admin';
+$_SESSION['admin_id'] = (int) $user['admin_id'];
+$_SESSION['username'] = $user['username'];
+$_SESSION['fullname'] = $user['username'];
+$_SESSION['email'] = $user['email'];
 
-
-/* ---------- Redirect ---------- */
-
-header(
-    "Location: ../html/dashboard.php"
+// Record the last successful admin login.
+$update = $pdo->prepare(
+    "UPDATE admins
+     SET last_login = NOW()
+     WHERE admin_id = :id"
 );
+$update->execute(['id' => $user['admin_id']]);
 
+header('Location: ../html/admin_dashboard.php');
 exit;
-
 ?>

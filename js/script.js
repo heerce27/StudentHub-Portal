@@ -530,37 +530,30 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         );
     }
-    /* =========================================================
-       4. LOGIN FORM
-       ========================================================= */
-    const loginForm =
-        document.getElementById("loginForm");
-    if (loginForm) {
-        loginForm.addEventListener(
-            "submit",
-            function (event) {
-                const password =
-                    document.getElementById(
-                        "LoginPassword"
-                    );
-                const studentId =
-                    document.getElementById(
-                        "studentid"
-                    );
-                if (
-                    !studentId ||
-                    !password ||
-                    !studentId.value ||
-                    !password.value
-                ) {
-                    event.preventDefault();
-                    alert(
-                        "Please fill in both Student ID and Password."
-                    );
-                }
-            }
-        );
-    }
+    
+/* =========================================================
+   4. LOGIN FORM
+   ========================================================= */
+
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+    loginForm.addEventListener("submit", function (event) {
+        const loginId = document.getElementById("login_id");
+        const password = document.getElementById("LoginPassword");
+
+        if (
+            !loginId ||
+            !password ||
+            !loginId.value.trim() ||
+            !password.value
+        ) {
+            event.preventDefault();
+            alert("Please enter your login ID and password.");
+        }
+    });
+}
+
     /* =========================================================
        5. NOTIFICATION BANNER
        ========================================================= */

@@ -1,14 +1,20 @@
 <?php
+require_once '../php/session.php';
 
-session_start();
-
-if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-    header("Location: login.html");
+if (
+    !isset($_SESSION['logged_in']) ||
+    $_SESSION['logged_in'] !== true
+) {
+    header('Location: login.html');
     exit;
 }
 
-$fullname = $_SESSION["fullname"];
+if (($_SESSION['role'] ?? '') !== 'student') {
+    http_response_code(403);
+    exit('Access denied. Student accounts only.');
+}
 
+$fullname = $_SESSION['fullname'] ?? 'Student';
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +48,7 @@ $fullname = $_SESSION["fullname"];
             🌙
         </button>
         <a href="../html/profile.html">Profile</a>
-        <a href="../html/login.html">Logout</a>
+        <a href="../php/logout.php">Logout</a>
     </div>
 
 </header>
@@ -84,7 +90,7 @@ $fullname = $_SESSION["fullname"];
                 <a href="feedback.html">Feedback</a>
             </li>
             <li>
-                <a href="login.html"> Logout </a>
+                <a href="../php/logout.php">Logout</a>
             </li>
         </ul>
     </nav>

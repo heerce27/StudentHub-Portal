@@ -42,42 +42,55 @@
                 Login to continue to your StudentHub account.
             </p>
 
-            <form id="loginForm" method="POST" action="../php/process_login.php">
-                <div class="form-group">
-                    <label for="studentid">Student ID</label>
-                    <input
-                    type="text"
-                    id="studentid"
-                    name="studentid"
-                    placeholder="Enter your Student ID"
-                    required>
+            
+<form id="loginForm" method="POST" action="../php/process_login.php">
 
-                </div>
+    <div class="form-group">
+        <label for="account_type">Login as</label>
+        <select id="account_type" name="account_type" required>
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+        </select>
+    </div>
 
-                <div class="form-group">
-                    <label for="LoginPassword">Password</label>
-                    <input
-                    type="password"
-                    id="LoginPassword"
-                    name="password"
-                    placeholder="Enter your password"
-                    required>
-                </div>
-                <div style="display:flex; gap:10px;">
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
-                        style="flex:1;">
-                        Login
-                    </button>
-                    <button
-                        type="reset"
-                        class="btn btn-secondary"
-                        style="flex:1;">
-                        Clear
-                    </button>
-                </div>
-            </form>
+    <div class="form-group">
+        <label for="login_id" id="login_id_label">
+            Student ID
+        </label>
+
+        <input
+            type="text"
+            id="login_id"
+            name="login_id"
+            placeholder="Enter your Student ID"
+            required>
+    </div>
+
+    <div class="form-group">
+        <label for="LoginPassword">Password</label>
+
+        <input
+            type="password"
+            id="LoginPassword"
+            name="password"
+            placeholder="Enter your password"
+            required>
+    </div>
+
+    <div style="display:flex; gap:10px;">
+        <button type="submit" class="btn btn-primary"
+                style="flex:1;">
+            Login
+        </button>
+
+        <button type="reset" class="btn btn-secondary"
+                style="flex:1;">
+            Clear
+        </button>
+    </div>
+
+</form>
+
             <br>
             <p style="text-align:center;">
                 New Student?
@@ -93,6 +106,23 @@
     <footer>
         © 2026 StudentHub. All Rights Reserved.
     </footer>
+    
+<script>
+const accountType = document.getElementById('account_type');
+const loginLabel = document.getElementById('login_id_label');
+const loginInput = document.getElementById('login_id');
+
+accountType.addEventListener('change', function () {
+    if (this.value === 'admin') {
+        loginLabel.textContent = 'Admin Username';
+        loginInput.placeholder = 'Enter your admin username';
+    } else {
+        loginLabel.textContent = 'Student ID';
+        loginInput.placeholder = 'Enter your Student ID';
+    }
+});
+</script>
+
     <script src="../js/script.js"></script>
 </body>
 </html>
